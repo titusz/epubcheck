@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='epubcheck',
-    version='0.1.0',
+    version='0.1.1',
     license='BSD',
     description='Python epubcheck wrapper',
     long_description='%s\n%s' % (
