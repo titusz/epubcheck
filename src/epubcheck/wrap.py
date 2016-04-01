@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import subprocess
-import const as c
+from epubcheck import const as c
 
 
 def validate(epub_path):
