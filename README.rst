@@ -1,6 +1,6 @@
-=========================================
-epubcheck - python wrappers for epubcheck
-=========================================
+=============================
+Python wrappers for EpubCheck
+=============================
 
 .. image:: https://readthedocs.org/projects/epubcheck/badge/?style=flat
     :target: https://readthedocs.org/projects/epubcheck
@@ -17,6 +17,13 @@ epubcheck - python wrappers for epubcheck
 .. image:: https://codecov.io/github/titusz/epubcheck/coverage.svg?branch=master
     :target: https://codecov.io/github/titusz/epubcheck
     :alt: Coverage Status
+
+
+Introduction
+============
+
+`EpubCheck <https://github.com/IDPF/epubcheck>`_ is the standard EPUB file
+validation tool. This package provides a convenient wrapper for python.
 
 
 Installation
@@ -54,3 +61,14 @@ Note, to combine the coverage data from all the tox environments run:
       - ::
 
             PYTEST_ADDOPTS=--cov-append tox
+
+
+Credits
+=======
+
+EpubCheck is a project coordinated by `IDPF <http://idpf.org/>`_. Most of the
+EpubCheck functionality comes from the schema validation tool
+`Jing <http://www.thaiopensource.com/relaxng/jing.html>`_  and schemas that
+were developed by `IDPF <http://idpf.org/>`_ and
+`DAISY <http://www.daisy.org/>`_. Initial EpubCheck development was largely
+done at `Adobe Systems <http://www.adobe.com/>`_.
