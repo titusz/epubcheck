@@ -1,0 +1,14 @@
+[paths]
+source =
+   src/epubcheck
+   */site-packages/epubcheck
+
+[run]
+branch = True
+source = epubcheck
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
