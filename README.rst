@@ -2,15 +2,21 @@
 epubcheck - python wrappers for epubcheck
 =========================================
 
+.. |docs| image:: https://readthedocs.org/projects/epubcheck/badge/?style=flat
+    :target: https://readthedocs.org/projects/epubcheck
+    :alt: Documentation Status
 
-.. image:: http://img.shields.io/travis/titusz/epubcheck/master.svg?style=flat-square&label=Travis
-    :target: https://travis-ci.org/titusz/epubcheck
+.. |travis| image:: https://travis-ci.org/titusz/epubcheck.svg?branch=master
     :alt: Travis-CI Build Status
+    :target: https://travis-ci.org/titusz/epubcheck
 
-
-.. image:: https://img.shields.io/appveyor/ci/titusz/epubcheck/master.svg?style=flat-square&label=AppVeyor
-    :target: https://ci.appveyor.com/project/titusz/epubcheck
+.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/titusz/epubcheck?branch=master&svg=true
     :alt: AppVeyor Build Status
+    :target: https://ci.appveyor.com/project/titusz/epubcheck
+
+.. |codecov| image:: https://codecov.io/github/titusz/epubcheck/coverage.svg?branch=master
+    :target: https://codecov.io/github/titusz/epubcheck
+    :alt: Coverage Status
 
 
 Installation

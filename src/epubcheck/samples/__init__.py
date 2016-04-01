@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from os.path import abspath, dirname, join
+from os import path
 
-ROOT = abspath(dirname(__file__))
+ROOT = path.abspath(path.dirname(__file__))
 
-EPUB3_VALID = join(ROOT, 'childrens-literature.epub')
-EPUB3_INVALID = join(ROOT, 'childrens-literature-invalid.epub')
+EPUB3_VALID = path.join(ROOT, 'childrens-literature.epub')
+EPUB3_INVALID = path.join(ROOT, 'childrens-literature-invalid.epub')
