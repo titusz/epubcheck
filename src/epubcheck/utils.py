@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import os
 import subprocess
 import locale
-import const as c
+from epubcheck import const as c
 
 
 def java_version():
