@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import os
+import sys
 import subprocess
-
-JAVA_EXECUTABLE = 'java'
-PROJECT_PATH = os.path.dirname(__file__)
-EPUBCHECK = os.path.join(PROJECT_PATH, 'epubcheck.jar')
+import locale
+import const as c
 
 
 def java_version():
@@ -14,23 +13,38 @@ def java_version():
     :return unicode: Java version string
     """
     result = subprocess.check_output(
-        [JAVA_EXECUTABLE, '-version'], stderr=subprocess.STDOUT
+        [c.JAVA, '-version'], stderr=subprocess.STDOUT
     )
     first_line = result.splitlines()[0]
     return first_line.decode()
 
 
-def epubcheck_version():
-    """Call epubcheck and return version information.
+def epubcheck_help():
+    """Return epubcheck.jar commandline help text.
 
-    :return unicode: Epubcheck verstion string
+    :return unicode: helptext from epubcheck.jar
     """
+
+    tc = locale.getdefaultlocale()[1]
+
     with open(os.devnull, "w") as devnull:
         p = subprocess.Popen(
-            [JAVA_EXECUTABLE, '-jar', EPUBCHECK, '-h'],
+            [c.JAVA, '-jar', c.EPUBCHECK, '-h'],
             stdout=subprocess.PIPE,
             stderr=devnull,
         )
-        result = p.communicate()[0].splitlines()[0]
-    return result.decode()
-print(epubcheck_version())
+        result = p.communicate()[0]
+
+    return result.decode(tc)
+
+
+def epubcheck_version():
+    """Call epubcheck -h and return helptext.
+
+    :return unicode: Epubcheck verstion string
+    """
+    return epubcheck_help().splitlines()[0]
+
+
+if __name__ == "__main__":
+    print(epubcheck_help())
