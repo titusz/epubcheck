@@ -18,7 +18,7 @@ Python wrappers for EpubCheck
     :target: https://codecov.io/github/titusz/epubcheck
     :alt: Coverage Status
 
-
+============
 Introduction
 ============
 
@@ -26,12 +26,32 @@ Introduction
 validation tool. This package provides a convenient wrapper for python.
 
 
-Installation
-============
 
-::
+==========
+Quickstart
+==========
+
+Installation
+------------
+
+You must have Python & Java installed on your system.
+
+EpubCheck itself is bundled on `PyPi <https://pypi.python.org/pypi/epubcheck>`_
+so you only have to do the usual::
 
     pip install epubcheck
+
+
+Usage Examples
+--------------
+
+.. code-block:: pycon
+
+    >>> from epubcheck import EpubCheck
+    >>> result = EpubCheck('src/epubcheck/samples/invalid.epub')
+    >>> print(result.valid)
+    >>> print(result.messages)
+
 
 Documentation
 =============
