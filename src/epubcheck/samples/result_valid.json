@@ -1,14 +1,14 @@
 {
   "customMessageFileName" : null,
   "checker" : {
-    "path" : ".\\.\\samples\\childrens-literature-invalid.epub",
-    "filename" : "childrens-literature-invalid.epub",
+    "path" : ".\\samples\\childrens-literature.epub",
+    "filename" : "childrens-literature.epub",
     "checkerVersion" : "4.0.1",
-    "checkDate" : "04-02-2016 11:36:08",
-    "elapsedTime" : 5926,
+    "checkDate" : "04-03-2016 13:59:28",
+    "elapsedTime" : 3963,
     "nFatal" : 0,
-    "nError" : 2,
-    "nWarning" : 1,
+    "nError" : 0,
+    "nWarning" : 0,
     "nUsage" : 0
   },
   "publication" : {
@@ -21,7 +21,7 @@
     "rights" : "Public domain in the USA.",
     "identifier" : "http://www.gutenberg.org/ebooks/25545",
     "language" : "en",
-    "nSpines" : 2,
+    "nSpines" : 3,
     "checkSum" : 0,
     "renditionLayout" : "reflowable",
     "renditionOrientation" : "auto",
@@ -32,7 +32,7 @@
     "isBackwardCompatible" : false,
     "hasAudio" : false,
     "hasVideo" : false,
-    "charsCount" : 324027,
+    "charsCount" : 324066,
     "embeddedFonts" : [ ],
     "refFonts" : [ ],
     "hasEncryption" : false,
@@ -40,6 +40,28 @@
     "contributors" : [ ]
   },
   "items" : [ {
+    "id" : "cover",
+    "fileName" : "EPUB/cover.xhtml",
+    "media_type" : "application/xhtml+xml",
+    "compressedSize" : 259,
+    "uncompressedSize" : 392,
+    "compressionMethod" : "Deflated",
+    "checkSum" : "619bb45af8bd5cca56140d159cbe64837e9220304421f1f36446afa26756a",
+    "isSpineItem" : true,
+    "spineIndex" : 0,
+    "isLinear" : true,
+    "navigationOrder" : null,
+    "isHTML5" : false,
+    "isFixedFormat" : false,
+    "isScripted" : false,
+    "scriptSrc" : false,
+    "scriptTag" : false,
+    "scriptInline" : false,
+    "renditionLayout" : "reflowable",
+    "renditionOrientation" : "auto",
+    "renditionSpread" : "auto",
+    "referencedItems" : [ "EPUB/css/epub.css", "EPUB/images/cover.png" ]
+  }, {
     "id" : "cover-img",
     "fileName" : "EPUB/images/cover.png",
     "media_type" : "image/png",
@@ -106,35 +128,13 @@
     "renditionSpread" : null,
     "referencedItems" : [ ]
   }, {
-    "id" : "ePubCheck.NoManifestRef:EPUB/cover.xhtml",
-    "fileName" : "EPUB/cover.xhtml",
-    "media_type" : null,
-    "compressedSize" : 259,
-    "uncompressedSize" : 392,
-    "compressionMethod" : "Deflated",
-    "checkSum" : "619bb45af8bd5cca56140d159cbe64837e9220304421f1f36446afa26756a",
-    "isSpineItem" : false,
-    "spineIndex" : null,
-    "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
-    "isFixedFormat" : null,
-    "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
-    "renditionLayout" : null,
-    "renditionOrientation" : null,
-    "renditionSpread" : null,
-    "referencedItems" : [ ]
-  }, {
     "id" : "ePubCheck.NoManifestRef:EPUB/package.opf",
     "fileName" : "EPUB/package.opf",
     "media_type" : null,
-    "compressedSize" : 813,
-    "uncompressedSize" : 2113,
+    "compressedSize" : 773,
+    "uncompressedSize" : 2050,
     "compressionMethod" : "Deflated",
-    "checkSum" : "fd44a93ef598ea69ff1172ba89ef7c682b9a4f8859f65174d7bf25217a922b",
+    "checkSum" : "a8a2eaabf38ed2fa3ddbbc63b1468b5381d1758f6c21a4f9d23c82f8ac5152",
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
@@ -202,7 +202,7 @@
     "compressionMethod" : "Deflated",
     "checkSum" : "82839a7f25f6f0ff27bf45eb015867a93181437322d861ee5b9da07625",
     "isSpineItem" : true,
-    "spineIndex" : 0,
+    "spineIndex" : 1,
     "isLinear" : true,
     "navigationOrder" : null,
     "isHTML5" : true,
@@ -246,7 +246,7 @@
     "compressionMethod" : "Deflated",
     "checkSum" : "dad34df53af6c05ce9b9686b99241f6120a8ac7e41a836050dac455eb94",
     "isSpineItem" : true,
-    "spineIndex" : 1,
+    "spineIndex" : 2,
     "isLinear" : true,
     "navigationOrder" : null,
     "isHTML5" : true,
@@ -260,46 +260,5 @@
     "renditionSpread" : "auto",
     "referencedItems" : [ "EPUB/css/epub.css" ]
   } ],
-  "messages" : [ {
-    "ID" : "OPF-003",
-    "severity" : "WARNING",
-    "message" : "Item 'EPUB/cover.xhtml' exists in the EPUB, but is not declared in the OPF manifest.",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "childrens-literature-invalid.epub",
-      "line" : -1,
-      "column" : -1,
-      "context" : null
-    } ],
-    "suggestion" : null
-  }, {
-    "ID" : "OPF-049",
-    "severity" : "ERROR",
-    "message" : "Item id 'cover' was not found in the manifest.",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "EPUB/package.opf",
-      "line" : 43,
-      "column" : 27,
-      "context" : null
-    }, {
-      "path" : "EPUB/toc.ncx",
-      "line" : -1,
-      "column" : -1,
-      "context" : "EPUB"
-    } ],
-    "suggestion" : null
-  }, {
-    "ID" : "RSC-005",
-    "severity" : "ERROR",
-    "message" : "Error while parsing file 'itemref element idref attribute does not resolve to a manifest item element'.",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "EPUB/package.opf",
-      "line" : 43,
-      "column" : 27,
-      "context" : null
-    } ],
-    "suggestion" : null
-  } ]
+  "messages" : [ ]
 }
