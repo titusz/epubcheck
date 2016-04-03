@@ -55,7 +55,7 @@ class EpubCheck:
             self._stdout, self._stderr = process.communicate()
             self._returncode = process.returncode
         self.valid = True if self._returncode == 0 else False
-        self.result_data = json.loads(self._stdout)
+        self.result_data = json.loads(self._stdout.decode())
         self.checker = Checker.from_data(self.result_data)
         self.meta = Meta.from_data(self.result_data)
         self.messages = Message.from_data(self.result_data)
