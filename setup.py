@@ -65,7 +65,7 @@ setup(
         'EPUB', 'validation', 'epubcheck', 'ebooks', 'QA', 'IDPF',
     ],
     install_requires=[
-        # eg: 'aspectlib==1.1.1', 'six>=1.7',
+        'six',
     ],
     extras_require={
         # eg:
