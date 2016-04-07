@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Generic or common utility functions"""
 from __future__ import print_function, unicode_literals
+import os
 from os.path import splitext, join
 import subprocess
 from epubcheck import samples
