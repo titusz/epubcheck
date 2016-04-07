@@ -5,6 +5,7 @@ Module that contains the command line app.
 from __future__ import unicode_literals, print_function
 import os
 import sys
+from six.moves import getcwd
 from argparse import ArgumentParser, FileType
 from multiprocessing.dummy import Pool as ThreadPool
 import tablib
@@ -53,9 +54,10 @@ def main(argv=None):
     args = parser.parse_args() if argv is None else parser.parse_args(argv)
 
     if not args.infile and not args.path:
-        args.path = os.getcwdu()
+        args.path = getcwd()
 
     all_valid = True
+    tpl = 'Finished validating {}: {}'
 
     if args.infile:
         print('Validating %s' % args.infile.name)
@@ -63,17 +65,15 @@ def main(argv=None):
         for msg in result.messages:
             print(msg.short, file=sys.stderr)
         if result.valid:
-            print('Validation successfull')
+            print(tpl.format(result.checker.filename, 'VALID'))
         else:
-            print('Validation FAILED')
+            print(tpl.format(result.checker.filename, 'INVALID'))
             all_valid = False
 
     if args.path:
         tree_or_dir = 'tree' if args.recursive else 'dir'
         print('\nValidating all files in %s %s' % (tree_or_dir, args.path))
-
         pool = ThreadPool()
-        tpl = 'Finished validating {}: {}'
         files = iter_files(args.path, ('epub',), args.recursive)
         results = pool.imap_unordered(EpubCheck, files)
         data = tablib.Dataset(headers=Checker._fields + Meta._fields)
@@ -91,7 +91,7 @@ def main(argv=None):
         pool.close()
 
         print('Writing epubcheck-result.xls')
-        outpath = os.path.join(os.getcwd(), 'epubcheck-result.xls')
+        outpath = os.path.join(getcwd(), 'epubcheck-result.xls')
         with open(outpath, 'wb') as outf:
             outf.write(data.xls)
 
