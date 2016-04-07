@@ -5,6 +5,8 @@ from __future__ import print_function
 
 import io
 import re
+import sys
+import platform
 from glob import glob
 from os.path import basename
 from os.path import dirname
@@ -20,6 +22,15 @@ def read(*names, **kwargs):
         join(dirname(__file__), *names),
         encoding=kwargs.get('encoding', 'utf8')
     ).read()
+
+
+dependencies = ['six', 'tablib']
+
+if platform.python_implementation() != 'PyPy':
+    dependencies.append('scandir')
+
+if sys.version.startswith('2.6'):
+    dependencies.append('argparse')
 
 
 setup(
@@ -64,9 +75,7 @@ setup(
     keywords=[
         'EPUB', 'validation', 'epubcheck', 'ebooks', 'QA', 'IDPF',
     ],
-    install_requires=[
-        'six',
-    ],
+    install_requires=dependencies,
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],
