@@ -70,6 +70,9 @@ class Meta(_BaseMeta):
     def from_data(cls, data):
         return cls(**data['publication'])
 
+    def flatten(self):
+        return tuple(';'.join(x) if isinstance(x, list) else x for x in self)
+
 
 _BaseMessage = namedtuple('Message', 'id level location message suggestion')
 
@@ -100,11 +103,11 @@ class Message(_BaseMessage):
             for l in m['locations']:
                 location = '{}:{}:{}'.format(l['path'], l['line'], l['column'])
                 messages.append(
-                    cls(m['ID'], location, m['severity'], m['message'], m['ID'])
+                    cls(m['ID'], m['severity'], location, m['message'], m['suggestion'])
                 )
         return messages
 
     @property
     def short(self):
         """Short string representation of message"""
-        return "{m.id} - {m.level} - {m.location} - {m.message}".format(m=self)
+        return "{m.level}\t{m.location}\t{m.message}".format(m=self)
