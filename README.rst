@@ -58,7 +58,7 @@ Validata all epub files in the current directory::
 
     $ epubchek
 
-Validate a single |EPUB| file::
+Validate a single EPUB file::
 
     $ epubcheck /path/to/book.epub
 
