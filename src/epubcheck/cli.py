@@ -10,7 +10,7 @@ from argparse import ArgumentParser, FileType
 from multiprocessing.dummy import Pool as ThreadPool
 import tablib
 from epubcheck import __version__, EpubCheck
-from epubcheck.models import Checker, Meta
+from epubcheck.models import Checker, Meta, Message
 from epubcheck.utils import iter_files
 
 
@@ -27,18 +27,30 @@ def create_parser():
 
     # Arguments
     parser.add_argument(
-        'infile',
+        'path',
         nargs='?',
-        type=FileType(mode='rb'),
-        help="Path to EPUB-file to validate"
+        default=getcwd(),
+        help="Path to EPUB-file or folder for batch validation. "
+             "The current directory will be processed if this argument "
+             "is not specified."
     )
 
     # Options
     parser.add_argument(
-        '-p', '--path', help="Path to folder with EPUB files for batch validation"
+        '-x', '--xls', nargs='?', type=FileType(mode='wb'),
+        const='epubcheck_report.xls',
+        help='Create a detailed Excel report.'
     )
+
     parser.add_argument(
-        '-r', '--recursive', action='store_true', help='Recurse into subfolders'
+        '-c', '--csv', nargs='?', type=FileType(mode='wb'),
+        const='epubcheck_report.csv',
+        help='Create a CSV report.'
+    )
+
+    parser.add_argument(
+        '-r', '--recursive', action='store_true',
+        help='Recurse into subfolders.'
     )
 
     return parser
@@ -53,47 +65,38 @@ def main(argv=None):
     parser = create_parser()
     args = parser.parse_args() if argv is None else parser.parse_args(argv)
 
-    if not args.infile and not args.path:
-        args.path = getcwd()
+    if not os.path.exists(args.path):
+        sys.exit(0)
 
     all_valid = True
-    tpl = 'Finished validating {}: {}'
+    single = os.path.isfile(args.path)
+    files = [args.path] if single else iter_files(
+        args.path, exts=('epub', ), recursive=args.recursive
+    )
 
-    if args.infile:
-        print('Validating %s' % args.infile.name)
-        result = EpubCheck(args.infile.name)
-        for msg in result.messages:
-            print(msg.short, file=sys.stderr)
-        if result.valid:
-            print(tpl.format(result.checker.filename, 'VALID'))
-        else:
-            print(tpl.format(result.checker.filename, 'INVALID'))
+    pool = ThreadPool()
+    results = pool.imap_unordered(EpubCheck, files)
+
+    metas = tablib.Dataset(headers=Checker._fields + Meta._fields)
+    messages = tablib.Dataset(headers=Message._fields)
+
+    for result in results:
+        metas.append(result.checker + result.meta.flatten())
+        if not result.valid:
             all_valid = False
-
-    if args.path:
-        tree_or_dir = 'tree' if args.recursive else 'dir'
-        print('\nValidating all files in %s %s' % (tree_or_dir, args.path))
-        pool = ThreadPool()
-        files = iter_files(args.path, ('epub',), args.recursive)
-        results = pool.imap_unordered(EpubCheck, files)
-        data = tablib.Dataset(headers=Checker._fields + Meta._fields)
-
-        for result in results:
-            fname = result.checker.filename
-            msg = tpl.format(fname, 'Valid' if result.valid else 'INVALID')
-            data.append(result.checker + result.meta.flatten())
-            if result.valid:
-                print(msg)
+        for message in result.messages:
+            messages.append(message)
+            if message.level == 'ERROR':
+                print(message.short, file=sys.stderr)
             else:
-                print(msg, file=sys.stderr)
-                all_valid = False
+                print(message.short)
 
-        pool.close()
+    if args.csv:
+        args.csv.write(messages.export('csv', delimiter=b';'))
 
-        print('Writing epubcheck-result.xls')
-        outpath = os.path.join(getcwd(), 'epubcheck-result.xls')
-        with open(outpath, 'wb') as outf:
-            outf.write(data.xls)
+    if args.xls:
+        databook = tablib.Databook((metas, messages))
+        args.xls.write(databook.xls)
 
     if all_valid:
         return 0
