@@ -24,7 +24,7 @@ Introduction
 
 The original `EpubCheck <https://github.com/IDPF/epubcheck>`_ is the standard
 Java based validation tool for EPUB provided by the
-`IDPF <http://http://idpf.org/>`_.
+`IDPF <http://idpf.org/>`_.
 
 This package provides a Python libary and command line tool for convenient
 validation of  EPUB files by wrapping the original
