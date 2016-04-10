@@ -56,7 +56,7 @@ Command line usage examples
 
 Validata all epub files in the current directory::
 
-    $ epubchek
+    $ epubcheck
 
 Validate a single EPUB file::
 
