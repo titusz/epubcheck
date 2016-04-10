@@ -23,11 +23,11 @@ Introduction
 ============
 
 The original `EpubCheck <https://github.com/IDPF/epubcheck>`_ is the standard
-Java based validation tool for |EPUB| provided by the
-`|IDPF| <http://http://idpf.org/>`_
+Java based validation tool for EPUB provided by the
+`IDPF <http://http://idpf.org/>`_.
 
 This package provides a Python libary and command line tool for convenient
-validation of  |EPUB| files by wrapping the original
+validation of  EPUB files by wrapping the original
 `EpubCheck <https://github.com/IDPF/epubcheck>`_.
 
 * Free software: BSD license
@@ -121,11 +121,3 @@ EpubCheck functionality comes from the schema validation tool
 were developed by `IDPF <http://idpf.org/>`_ and
 `DAISY <http://www.daisy.org/>`_. Initial EpubCheck development was largely
 done at `Adobe Systems <http://www.adobe.com/>`_.
-
-
-.. |IDPF| raw:: html
-    <abbr title="International Digital Publishing Forum">IDPF</abbr>
-
-.. |EPUB| raw:: html
-    <abbr title="electronic publication">EPUB</abbr>
-
