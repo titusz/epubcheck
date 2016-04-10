@@ -17,8 +17,7 @@ def test_main_valid(capsys):
     argv = [samples.EPUB3_VALID]
     exit_code = main(argv)
     out, err = capsys.readouterr()
-    assert 'VALID' in out
-    assert 'INVALID' not in out
+    assert 'ERROR' not in out and 'ERROR' not in err
     assert exit_code == 0
 
 
@@ -26,5 +25,5 @@ def test_main_invalid(capsys):
     argv = [samples.EPUB3_INVALID]
     exit_code = main(argv)
     out, err = capsys.readouterr()
-    assert 'INVALID' in out
+    assert 'ERROR' in err and 'WARNING' in out
     assert exit_code == 1
