@@ -101,7 +101,11 @@ class Message(_BaseMessage):
         messages = []
         for m in data['messages']:
             for l in m['locations']:
-                location = '{}:{}:{}'.format(l['path'], l['line'], l['column'])
+                location = l['path']
+                if l['line'] != -1:
+                    location += ':{}'.format(l['line'])
+                if l['column'] != -1:
+                    location += ':{}'.format(l['column'])
                 messages.append(
                     cls(m['ID'], m['severity'], location, m['message'], m['suggestion'])
                 )
@@ -110,4 +114,4 @@ class Message(_BaseMessage):
     @property
     def short(self):
         """Short string representation of message"""
-        return "{m.level}\t{m.location}\t{m.message}".format(m=self)
+        return "{m.level} - {m.id} - {m.location} - {m.message}".format(m=self)
