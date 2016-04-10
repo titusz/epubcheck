@@ -99,9 +99,12 @@ class Message(_BaseMessage):
         :return list[Message]: List of messages
         """
         messages = []
+        filename = data['checker']['filename']
         for m in data['messages']:
             for l in m['locations']:
                 location = l['path']
+                if not location.startswith(filename):
+                    location = filename + '/' + location
                 if l['line'] != -1:
                     location += ':{}'.format(l['line'])
                 if l['column'] != -1:
