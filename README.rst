@@ -54,7 +54,11 @@ Quickstart
 Command line usage examples
 ---------------------------
 
-Validate a single |EPUB| file from the command line::
+Validata all epub files in the current directory::
+
+    $ epubchek
+
+Validate a single |EPUB| file::
 
     $ epubcheck /path/to/book.epub
 
