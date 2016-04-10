@@ -47,9 +47,9 @@ EpubCheck command line client itself is bundled in the
 This package is tested with Python 2.7, 3.3, 3.4, 3.5 on Linux and Windows.
 It should also work with PyPy.
 
-----------
+==========
 Quickstart
-----------
+==========
 
 Command line usage examples
 ---------------------------
@@ -82,11 +82,14 @@ Using epubcheck as a python library
     >>> print(result.messages)
 
 
+=============
 Documentation
 =============
 
 https://epubcheck.readthedocs.org/
 
+
+===========
 Development
 ===========
 
@@ -111,7 +114,7 @@ Note, to combine the coverage data from all the tox environments run:
 
             PYTEST_ADDOPTS=--cov-append tox
 
-
+=======
 Credits
 =======
 
