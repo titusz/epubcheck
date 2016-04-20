@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.4.0 (2016-04-20)
+0.3.1 (2016-04-20)
 ------------------
 
 * Added custom PY2/PY3 compat module and removed dependancy on six
