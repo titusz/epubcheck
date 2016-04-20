@@ -28,7 +28,7 @@ Java based validation tool for EPUB provided by the
 
 This package provides a Python libary and command line tool for convenient
 validation of  EPUB files by wrapping the original
-`EpubCheck <https://github.com/IDPF/epubcheck>`_.
+`EpubCheck 4.0.1 <https://github.com/IDPF/epubcheck/releases/tag/v4.0.1>`_.
 
 * Free software: BSD license
 
