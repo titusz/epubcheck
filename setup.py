@@ -24,7 +24,7 @@ def read(*names, **kwargs):
     ).read()
 
 
-dependencies = ['six', 'tablib']
+dependencies = ['tablib']
 
 if platform.python_implementation() != 'PyPy':
     dependencies.append('scandir')

@@ -6,19 +6,8 @@ from os.path import splitext, join
 import subprocess
 from epubcheck import samples
 from epubcheck import const as c
+from epubcheck import compat
 from epubcheck.checker import EpubCheck
-
-
-has_scandir = True
-
-
-try:
-    from scandir import scandir, walk
-except ImportError:
-    from os import walk
-    from os import listdir as scandir
-    from os.path import isdir
-    has_scandir = False
 
 
 def java_version():
@@ -75,7 +64,7 @@ def generate_sample_json():
 def iter_files(root, exts=None, recursive=False):
     """
     Iterate over file paths within root filtered by specified extensions.
-    :param six.string_types root: Root folder to start collecting files
+    :param compat.string_types root: Root folder to start collecting files
     :param iterable exts: Restrict results to given file extensions
     :param bool recursive: Wether to walk the complete directory tree
     :rtype collections.Iterable[str]: absolute file paths with given extensions
@@ -88,17 +77,17 @@ def iter_files(root, exts=None, recursive=False):
         return (exts is None) or (e in exts)
 
     if recursive is False:
-        for entry in scandir(root):
-            if has_scandir:
+        for entry in compat.scandir(root):
+            if compat.has_scandir:
                 ext = splitext(entry.name)[-1].lstrip('.').lower()
                 if entry.is_file() and matches(ext):
                     yield entry.path
             else:
                 ext = splitext(entry)[-1].lstrip('.').lower()
-                if not isdir(entry) and matches(ext):
+                if not compat.isdir(entry) and matches(ext):
                     yield join(root, entry)
     else:
-        for root, folders, files in walk(root):
+        for root, folders, files in compat.walk(root):
             for f in files:
                 ext = splitext(f)[-1].lstrip('.').lower()
                 if matches(ext):

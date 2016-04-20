@@ -5,13 +5,18 @@ Module that contains the command line app.
 from __future__ import unicode_literals, print_function
 import os
 import sys
-from six.moves import getcwd
 from argparse import ArgumentParser, FileType
 from multiprocessing.dummy import Pool as ThreadPool
 import tablib
 from epubcheck import __version__, EpubCheck
 from epubcheck.models import Checker, Meta, Message
 from epubcheck.utils import iter_files
+from epubcheck import compat
+
+if compat.PY2:
+    from os import getcwdu as getcwd
+else:
+    from os import getcwd
 
 
 def create_parser():
