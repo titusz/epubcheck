@@ -12,9 +12,9 @@ if PY3:
 
     MAXSIZE = sys.maxsize
 else:
-    string_types = basestring,
-    integer_types = (int, long)
-    text_type = unicode
+    string_types = basestring,  # NOQA
+    integer_types = (int, long)  # NOQA
+    text_type = unicode  # NOQA
     binary_type = str
 
 has_scandir = True
@@ -23,7 +23,7 @@ has_scandir = True
 try:
     from scandir import scandir, walk
 except ImportError:
-    from os import walk
-    from os import listdir as scandir
-    from os.path import isdir
+    from os import walk  # NOQA
+    from os import listdir as scandir  # NOQA
+    from os.path import isdir  # NOQA
     has_scandir = False
