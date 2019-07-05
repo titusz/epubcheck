@@ -17,7 +17,7 @@ def test_epubcheck_help():
 
 
 def test_epubcheck_version():
-    assert utils.epubcheck_version().startswith('EpubCheck v4.0.1')
+    assert utils.epubcheck_version().startswith('EPUBCheck v4.2.1')
 
 
 def test_iter_files_simple():
