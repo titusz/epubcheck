@@ -1,94 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jhove xmlns="http://hul.harvard.edu/ois/xml/ns/jhove" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="epubcheck" release="4.0.1" date="2015-10-23">
-    <date>2016-04-02T11:35:08+02:00</date>
-    <repInfo uri="childrens-literature-invalid.epub">
-        <created>2015-02-16T08:44:04Z</created>
-        <lastModified>2010-02-17T04:39:13Z</lastModified>
-        <format>application/epub+zip</format>
-        <version>3.0.1</version>
-        <status>Not well-formed</status>
-        <messages>
-            <message>OPF-049, ERROR, [Item id 'cover' was not found in the manifest.], EPUB/package.opf (43-27)</message>
-            <message>OPF-049, ERROR, [Item id 'cover' was not found in the manifest.], EPUB/toc.ncx</message>
-            <message>RSC-005, ERROR, [Error while parsing file 'itemref element idref attribute does not resolve to a manifest item element'.], EPUB/package.opf (43-27)</message>
-            <message>OPF-003, WARN, [Item 'EPUB/cover.xhtml' exists in the EPUB, but is not declared in the OPF manifest.], childrens-literature-invalid.epub</message>
-        </messages>
-        <mimeType>application/epub+zip</mimeType>
-        <properties>
-            <property>
-                <name>CharacterCount</name>
-                <values arity="Scalar" type="Long">
-                    <value>324027</value>
-                </values>
-            </property>
-            <property>
-                <name>Language</name>
-                <values arity="Scalar" type="String">
-                    <value>en</value>
-                </values>
-            </property>
-            <property>
-                <name>Info</name>
-                <values arity="List" type="Property">
-                    <property>
-                        <name>Identifier</name>
-                        <values arity="Scalar" type="String">
-                            <value>http://www.gutenberg.org/ebooks/25545</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>CreationDate</name>
-                        <values arity="Scalar" type="Date">
-                            <value>2015-02-16T08:44:04Z</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>ModDate</name>
-                        <values arity="Scalar" type="Date">
-                            <value>2010-02-17T04:39:13Z</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>Title</name>
-                        <values arity="Array" type="String">
-                            <value>Children's Literature</value>
-                            <value>A Textbook of Sources for Teachers and Teacher-Training Classes</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>Creator</name>
-                        <values arity="Array" type="String">
-                            <value>Charles Madison Curry</value>
-                            <value>Erle Elsworth Clippinger</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>Date</name>
-                        <values arity="Scalar" type="String">
-                            <value>2008-05-20</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>Subject</name>
-                        <values arity="Array" type="String">
-                            <value>Children -- Books and reading</value>
-                            <value>Children's literature -- Study and teaching</value>
-                        </values>
-                    </property>
-                    <property>
-                        <name>Rights</name>
-                        <values arity="Scalar" type="String">
-                            <value>Public domain in the USA.</value>
-                        </values>
-                    </property>
-                </values>
-            </property>
-            <property>
-                <name>hasScripts</name>
-                <values arity="Scalar" type="Boolean">
-                    <value>true</value>
-                </values>
-            </property>
-        </properties>
-    </repInfo>
+<jhove xmlns="http://hul.harvard.edu/ois/xml/ns/jhove"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       date="2019-05-20"
+       name="epubcheck"
+       release="4.2.1"
+       xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove http://hul.harvard.edu/ois/xml/xsd/jhove/jhove.xsd">
+   <date>2019-07-05T13:07:08-04:00</date>
+   <repInfo uri="samples/invalid.epub">
+      <created>2015-02-16T07:44:04Z</created>
+      <lastModified>2019-07-05T17:05:21Z</lastModified>
+      <format>application/epub+zip</format>
+      <version>3.2</version>
+      <status>Not well-formed</status>
+      <messages>
+         <message severity="error" subMessage="OPF-049">OPF-049, ERROR, [Item id 'cover' was not found in the manifest.], EPUB/package.opf (40-29)</message>
+         <message severity="error" subMessage="OPF-049">OPF-049, ERROR, [Item id 'cover' was not found in the manifest.], EPUB/toc.ncx</message>
+         <message severity="error" subMessage="RSC-005">RSC-005, ERROR, [Error while parsing file: itemref element idref attribute does not resolve to a manifest item element], EPUB/package.opf (40-29)</message>
+         <message severity="error" subMessage="OPF-003">OPF-003, WARN, [Item 'EPUB/cover.xhtml' exists in the EPUB, but is not declared in the OPF manifest.], invalid.epub</message>
+      </messages>
+      <mimeType>application/epub+zip</mimeType>
+      <properties>
+         <property>
+            <name>FileName</name>
+            <values arity="Scalar" type="String">
+               <value>invalid.epub</value>
+            </values>
+         </property>
+         <property>
+            <name>CharacterCount</name>
+            <values arity="Scalar" type="Long">
+               <value>324027</value>
+            </values>
+         </property>
+         <property>
+            <name>Language</name>
+            <values arity="Scalar" type="String">
+               <value>en</value>
+            </values>
+         </property>
+         <property>
+            <name>Info</name>
+            <values arity="List" type="Property">
+               <property>
+                  <name>Identifier</name>
+                  <values arity="Scalar" type="String">
+                     <value>http://www.gutenberg.org/ebooks/25545</value>
+                  </values>
+               </property>
+               <property>
+                  <name>CreationDate</name>
+                  <values arity="Scalar" type="Date">
+                     <value>2015-02-16T07:44:04Z</value>
+                  </values>
+               </property>
+               <property>
+                  <name>ModDate</name>
+                  <values arity="Scalar" type="Date">
+                     <value>2019-07-05T17:05:21Z</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Title</name>
+                  <values arity="Array" type="String">
+                     <value>Children's Literature</value>
+                     <value>A Textbook of Sources for Teachers and Teacher-Training Classes</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Creator</name>
+                  <values arity="Array" type="String">
+                     <value>Charles Madison Curry</value>
+                     <value>Erle Elsworth Clippinger</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Contributor</name>
+                  <values arity="Scalar" type="String">
+                     <value>calibre (3.44.0) [https://calibre-ebook.com]</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Date</name>
+                  <values arity="Scalar" type="String">
+                     <value>2008-05-20T00:00:00+00:00</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Subject</name>
+                  <values arity="Array" type="String">
+                     <value>Children -- Books and reading</value>
+                     <value>Children's literature -- Study and teaching</value>
+                  </values>
+               </property>
+               <property>
+                  <name>Rights</name>
+                  <values arity="Scalar" type="String">
+                     <value>Public domain in the USA.</value>
+                  </values>
+               </property>
+            </values>
+         </property>
+         <property>
+            <name>MediaTypes</name>
+            <values arity="Array" type="String">
+               <value>image/png</value>
+               <value>text/css</value>
+               <value>application/xhtml+xml</value>
+               <value>application/x-dtbncx+xml</value>
+            </values>
+         </property>
+         <property>
+            <name>hasScripts</name>
+            <values arity="Scalar" type="Boolean">
+               <value>true</value>
+            </values>
+         </property>
+      </properties>
+   </repInfo>
 </jhove>
