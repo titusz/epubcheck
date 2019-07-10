@@ -29,7 +29,7 @@ matrix:
       env: TOXENV=py37
 
     - python: 'pypy'
-      env: TOXENV=pypy,codecov
+      env: TOXENV=pypy
 before_install:
   - python --version
   - uname -a
