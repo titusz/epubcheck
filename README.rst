@@ -44,7 +44,7 @@ If you have Python on your system you can do the usual::
 
 You must have Python & Java installed on your system. The original Java
 EpubCheck command line client itself is bundled in the
-`PyPi <https://pypi.python.org/pypi/epubcheck>`_ package.
+`PyPi <https://pypi.org/project/epubcheck/>`_ package.
 
 This package is tested with Python 2.7, 3.3, 3.4, 3.5 on Linux and Windows.
 It should also work with PyPy.
@@ -122,7 +122,7 @@ Credits
 
 EpubCheck is a project coordinated by `IDPF <http://idpf.org/>`_. Most of the
 EpubCheck functionality comes from the schema validation tool
-`Jing <http://www.thaiopensource.com/relaxng/jing.html>`_  and schemas that
+`Jing <https://relaxng.org/jclark/jing.html>`_  and schemas that
 were developed by `IDPF <http://idpf.org/>`_ and
 `DAISY <http://www.daisy.org/>`_. Initial EpubCheck development was largely
-done at `Adobe Systems <http://www.adobe.com/>`_.
+done at `Adobe Systems <https://www.adobe.com/>`_.
