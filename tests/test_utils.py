@@ -9,7 +9,11 @@ TEST_DIR = abspath(dirname(samples.__file__))
 
 
 def test_utils_java_version():
-    assert utils.java_version().startswith('java version')
+    java_version = utils.java_version()
+    accepted_versions = ['java version', 'openjdk version']
+
+    actual = [java_version.startswith(v) for v in accepted_versions]
+    assert any(actual)
 
 
 def test_epubcheck_help():
