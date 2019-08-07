@@ -6,7 +6,7 @@ and internal reference consistency are checked. EpubCheck can be run
 as a standalone command-line tool, installed as a web application or
 used as a library.
 
-EpubCheck project home: https://github.com/idpf/epubcheck
+EpubCheck project home: https://github.com/w3c/epubcheck
 
 
 RUNNING

@@ -22,13 +22,15 @@ Python wrappers for EpubCheck
 Introduction
 ============
 
-The original `EpubCheck <https://github.com/IDPF/epubcheck>`_ is the standard
-Java based validation tool for EPUB provided by the
-`IDPF <http://idpf.org/>`_.
+The original `EpubCheck <https://github.com/w3c/epubcheck>`_ is the standard
+Java based validation tool for EPUB maintained by
+`DAISY Consortium <http://www.daisy.org/>`_ on behalf of the
+`W3C <https://www.w3.org/publishing/epubcheck_fundraising>`_, originally
+developed by the `IDPF <http://idpf.org/>`_.
 
 This package provides a Python libary and command line tool for convenient
 validation of  EPUB files by wrapping the original
-`EpubCheck 4.0.1 <https://github.com/IDPF/epubcheck/releases/tag/v4.0.1>`_.
+`EpubCheck 4.2.1 <https://github.com/w3c/epubcheck/releases/tag/v4.2.1>`_.
 
 * Free software: BSD license
 
@@ -42,7 +44,7 @@ If you have Python on your system you can do the usual::
 
 You must have Python & Java installed on your system. The original Java
 EpubCheck command line client itself is bundled in the
-`PyPi <https://pypi.python.org/pypi/epubcheck>`_ package.
+`PyPi <https://pypi.org/project/epubcheck/>`_ package.
 
 This package is tested with Python 2.7, 3.3, 3.4, 3.5 on Linux and Windows.
 It should also work with PyPy.
@@ -120,7 +122,7 @@ Credits
 
 EpubCheck is a project coordinated by `IDPF <http://idpf.org/>`_. Most of the
 EpubCheck functionality comes from the schema validation tool
-`Jing <http://www.thaiopensource.com/relaxng/jing.html>`_  and schemas that
+`Jing <https://relaxng.org/jclark/jing.html>`_  and schemas that
 were developed by `IDPF <http://idpf.org/>`_ and
 `DAISY <http://www.daisy.org/>`_. Initial EpubCheck development was largely
-done at `Adobe Systems <http://www.adobe.com/>`_.
+done at `Adobe Systems <https://www.adobe.com/>`_.

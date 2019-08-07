@@ -27,6 +27,11 @@ URLS = {
     ("3.4", "32"): BASE_URL + "3.4.3/python-3.4.3.msi",
     ("3.5", "64"): BASE_URL + "3.5.0/python-3.5.0-amd64.exe",
     ("3.5", "32"): BASE_URL + "3.5.0/python-3.5.0.exe",
+    # NOTE: no .exe installer for 3.6.9
+    ("3.6", "64"): BASE_URL + "3.6.8/python-3.6.8-amd64.exe",
+    ("3.6", "32"): BASE_URL + "3.6.8/python-3.6.8.exe",
+    ("3.7", "64"): BASE_URL + "3.7.4/python-3.7.4-amd64.exe",
+    ("3.7", "32"): BASE_URL + "3.7.4/python-3.7.4.exe",
 }
 INSTALL_CMD = {
     # Commands are allowed to fail only if they are not the last command.  Eg: uninstall (/x) allowed to fail.
@@ -36,7 +41,11 @@ INSTALL_CMD = {
             ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
     "3.4": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
             ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
-    "3.5": [["{path}", "/quiet", "TargetDir={home}"]],
+    "3.5": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
+            ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
+    "3.6": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
+            ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
+    "3.7": [["{path}", "/quiet", "TargetDir={home}"]],
 }
 
 

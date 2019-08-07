@@ -43,6 +43,10 @@ htmlcov
 *.iml
 *.komodoproject
 
+# VSCode
+.history/
+.vscode/
+
 # Complexity
 output/*.html
 output/*/index.html

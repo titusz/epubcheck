@@ -2,6 +2,11 @@
 Changelog
 =========
 
+UNRELEASED
+----------
+
+* Update the epubcheck.jar to v4.2.1 (see: https://github.com/w3c/epubcheck/releases/tag/v4.2.1)
+
 0.3.1 (2016-04-20)
 ------------------
 
