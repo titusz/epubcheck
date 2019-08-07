@@ -35,7 +35,7 @@ if sys.version.startswith('2.6'):
 
 setup(
     name='epubcheck',
-    version='0.3.1',
+    version='0.4.2',
     license='BSD',
     description='Python epubcheck wrapper',
     long_description='%s\n%s' % (

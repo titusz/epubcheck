@@ -30,7 +30,7 @@ developed by the `IDPF <http://idpf.org/>`_.
 
 This package provides a Python libary and command line tool for convenient
 validation of  EPUB files by wrapping the original
-`EpubCheck 4.2.1 <https://github.com/w3c/epubcheck/releases/tag/v4.2.1>`_.
+`EpubCheck 4.2.2 <https://github.com/w3c/epubcheck/releases/tag/v4.2.2>`_.
 
 * Free software: BSD license
 
@@ -46,7 +46,7 @@ You must have Python & Java installed on your system. The original Java
 EpubCheck command line client itself is bundled in the
 `PyPi <https://pypi.org/project/epubcheck/>`_ package.
 
-This package is tested with Python 2.7, 3.3, 3.4, 3.5 on Linux and Windows.
+This package is tested with Python 2.7, 3.4, 3.5, 3.6, 3.7 on Linux and Windows.
 It should also work with PyPy.
 
 ==========
