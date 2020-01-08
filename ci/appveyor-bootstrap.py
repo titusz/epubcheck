@@ -92,13 +92,10 @@ def download_python(version, arch):
 def install_pip(home):
     pip_path = home + "/Scripts/pip.exe"
     python_path = home + "/python.exe"
-    if exists(pip_path):
-        print("pip already installed.")
-    else:
-        print("Installing pip...")
-        download_file(GET_PIP_URL, GET_PIP_PATH)
-        print("Executing:", python_path, GET_PIP_PATH)
-        check_call([python_path, GET_PIP_PATH])
+    print("Installing pip...")
+    download_file(GET_PIP_URL, GET_PIP_PATH)
+    print("Executing:", python_path, GET_PIP_PATH)
+    check_call([python_path, GET_PIP_PATH])
 
 
 def install_packages(home, *packages):
