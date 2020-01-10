@@ -20,11 +20,6 @@ GET_PIP_PATH = "C:\get-pip.py"
 URLS = {
     ("2.7", "64"): BASE_URL + "2.7.10/python-2.7.10.amd64.msi",
     ("2.7", "32"): BASE_URL + "2.7.10/python-2.7.10.msi",
-    # NOTE: no .msi installer for 3.3.6
-    ("3.3", "64"): BASE_URL + "3.3.3/python-3.3.3.amd64.msi",
-    ("3.3", "32"): BASE_URL + "3.3.3/python-3.3.3.msi",
-    ("3.4", "64"): BASE_URL + "3.4.3/python-3.4.3.amd64.msi",
-    ("3.4", "32"): BASE_URL + "3.4.3/python-3.4.3.msi",
     ("3.5", "64"): BASE_URL + "3.5.0/python-3.5.0-amd64.exe",
     ("3.5", "32"): BASE_URL + "3.5.0/python-3.5.0.exe",
     # NOTE: no .exe installer for 3.6.9
@@ -36,10 +31,6 @@ URLS = {
 INSTALL_CMD = {
     # Commands are allowed to fail only if they are not the last command.  Eg: uninstall (/x) allowed to fail.
     "2.7": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
-            ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
-    "3.3": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
-            ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
-    "3.4": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
             ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
     "3.5": [["msiexec.exe", "/L*+!", "install.log", "/qn", "/x", "{path}"],
             ["msiexec.exe", "/L*+!", "install.log", "/qn", "/i", "{path}", "TARGETDIR={home}"]],
@@ -101,13 +92,10 @@ def download_python(version, arch):
 def install_pip(home):
     pip_path = home + "/Scripts/pip.exe"
     python_path = home + "/python.exe"
-    if exists(pip_path):
-        print("pip already installed.")
-    else:
-        print("Installing pip...")
-        download_file(GET_PIP_URL, GET_PIP_PATH)
-        print("Executing:", python_path, GET_PIP_PATH)
-        check_call([python_path, GET_PIP_PATH])
+    print("Installing pip...")
+    download_file(GET_PIP_URL, GET_PIP_PATH)
+    print("Executing:", python_path, GET_PIP_PATH)
+    check_call([python_path, GET_PIP_PATH])
 
 
 def install_packages(home, *packages):

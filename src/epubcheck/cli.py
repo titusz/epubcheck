@@ -97,11 +97,13 @@ def main(argv=None):
                 print(message.short)
 
     if args.csv:
-        args.csv.write(messages.export('csv', delimiter=b';'))
+        args.csv.write(messages.export('csv', delimiter=compat.text_type(';')).encode())
+        args.csv.close()
 
     if args.xls:
         databook = tablib.Databook((metas, messages))
         args.xls.write(databook.xls)
+        args.xls.close()
 
     if all_valid:
         return 0
