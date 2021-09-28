@@ -6,11 +6,11 @@ Python wrappers for EpubCheck
     :target: https://readthedocs.org/projects/epubcheck
     :alt: Documentation Status
 
-.. image:: http://img.shields.io/travis/titusz/epubcheck/master.svg?style=flat-square&label=Travis
+.. image:: https://img.shields.io/travis/titusz/epubcheck/master.svg?style=flat-square&label=Travis
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/titusz/epubcheck
 
-.. image:: https://img.shields.io/appveyor/ci/titusz/epubcheck/master.svg?style=flat-square&label=AppVeyor
+.. image:: https://img.shields.io/appveyor/build/titusz/epubcheck/master.svg?style=flat-square&label=AppVeyor
     :alt: AppVeyor Build Status
     :target: https://ci.appveyor.com/project/titusz/epubcheck
 
@@ -24,7 +24,7 @@ Introduction
 
 The original `EpubCheck <https://github.com/w3c/epubcheck>`_ is the standard
 Java based validation tool for EPUB maintained by
-`DAISY Consortium <http://www.daisy.org/>`_ on behalf of the
+`DAISY Consortium <https://daisy.org/>`_ on behalf of the
 `W3C <https://www.w3.org/publishing/epubcheck_fundraising>`_, originally
 developed by the `IDPF <http://idpf.org/>`_.
 
@@ -88,7 +88,7 @@ Using epubcheck as a python library
 Documentation
 =============
 
-https://epubcheck.readthedocs.org/
+https://epubcheck.readthedocs.io/en/latest/
 
 
 ===========
@@ -124,5 +124,5 @@ EpubCheck is a project coordinated by `IDPF <http://idpf.org/>`_. Most of the
 EpubCheck functionality comes from the schema validation tool
 `Jing <https://relaxng.org/jclark/jing.html>`_  and schemas that
 were developed by `IDPF <http://idpf.org/>`_ and
-`DAISY <http://www.daisy.org/>`_. Initial EpubCheck development was largely
+`DAISY <https://daisy.org/>`_. Initial EpubCheck development was largely
 done at `Adobe Systems <https://www.adobe.com/>`_.
