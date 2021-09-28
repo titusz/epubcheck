@@ -54,7 +54,7 @@ install:
   - python -u ci\appveyor-bootstrap.py
   - '%PYTHON_HOME%\Scripts\pip install virtualenv --upgrade'
   - '%PYTHON_HOME%\Scripts\virtualenv --version'
-  - '%PYTHON_HOME%\Scripts\easy_install --version'
+  - '%PYTHON_HOME%\Scripts\pip show setuptools'
   - '%PYTHON_HOME%\Scripts\pip --version'
   - '%PYTHON_HOME%\Scripts\tox --version'
 test_script:
