@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "epubcheck"
+version = "0.4.3"
+description = "Python epubcheck wrapper"
+authors = ["Titusz Pan <tp@py7.de>"]
+license = "BSD"
+readme = "README.md"
+repository = "https://github.com/titusz/epubcheck/"
+keywords = ['EPUB', 'validation', 'epubcheck', 'ebooks', 'QA', 'IDPF']
+
+classifiers = [
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: Unix',
+        'Operating System :: POSIX',
+        'Operating System :: Microsoft :: Windows',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
+]
+
+[tool.poetry.scripts]
+epubcheck = 'epubcheck.cli:main'
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+tablib = "*"
+xlwt = "*"
+xlrd = "*"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+black = { version = "*", allow-prereleases = true }
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
