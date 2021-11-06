@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import json
-from epubcheck import compat
-
-from epubcheck import models
-from epubcheck import samples
+from epubcheck import compat, models, samples
 
 
 VALID = json.load(open(samples.RESULT_VALID))

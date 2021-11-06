@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from epubcheck import EpubCheck
-from epubcheck import samples
+from epubcheck import EpubCheck, samples
 
 
 def test_epubcheck_valid():
