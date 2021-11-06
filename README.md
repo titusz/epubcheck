@@ -1,7 +1,9 @@
 # Python wrappers and CLI for EpubCheck
 
-> A command line tool and lib that wraps EpubCheck for Python.
+[![Linux/Windows/macOS Tests](https://github.com/titusz/epubcheck/workflows/Tests/badge.svg)](https://github.com/titusz/epubcheck/actions?query=workflow%3ATests)
+[![Version](https://img.shields.io/pypi/v/epubcheck.svg)](https://pypi.python.org/pypi/epubcheck/)
 
+> A command line tool and lib that wraps EpubCheck for Python.
 
 ## Introduction
 
@@ -68,7 +70,7 @@ https://epubcheck.readthedocs.io/en/latest/
 
 ## Development
 
-Intall [poetry](https://pypi.org/project/poetry/) checkout this repository and run:
+Install [poetry](https://pypi.org/project/poetry/) checkout this repository and run:
 
     poetry install
 
