@@ -26,36 +26,41 @@ def create_parser():
     """
 
     parser = ArgumentParser(
-        prog='epubcheck',
-        description="EpubCheck v%s - Validate your ebooks" % __version__
+        prog="epubcheck",
+        description="EpubCheck v%s - Validate your ebooks" % __version__,
     )
 
     # Arguments
     parser.add_argument(
-        'path',
-        nargs='?',
+        "path",
+        nargs="?",
         default=getcwd(),
         help="Path to EPUB-file or folder for batch validation. "
-             "The current directory will be processed if this argument "
-             "is not specified."
+        "The current directory will be processed if this argument "
+        "is not specified.",
     )
 
     # Options
     parser.add_argument(
-        '-x', '--xls', nargs='?', type=FileType(mode='wb'),
-        const='epubcheck_report.xls',
-        help='Create a detailed Excel report.'
+        "-x",
+        "--xls",
+        nargs="?",
+        type=FileType(mode="wb"),
+        const="epubcheck_report.xls",
+        help="Create a detailed Excel report.",
     )
 
     parser.add_argument(
-        '-c', '--csv', nargs='?', type=FileType(mode='wb'),
-        const='epubcheck_report.csv',
-        help='Create a CSV report.'
+        "-c",
+        "--csv",
+        nargs="?",
+        type=FileType(mode="wb"),
+        const="epubcheck_report.csv",
+        help="Create a CSV report.",
     )
 
     parser.add_argument(
-        '-r', '--recursive', action='store_true',
-        help='Recurse into subfolders.'
+        "-r", "--recursive", action="store_true", help="Recurse into subfolders."
     )
 
     return parser
@@ -75,8 +80,10 @@ def main(argv=None):
 
     all_valid = True
     single = os.path.isfile(args.path)
-    files = [args.path] if single else iter_files(
-        args.path, exts=('epub', ), recursive=args.recursive
+    files = (
+        [args.path]
+        if single
+        else iter_files(args.path, exts=("epub",), recursive=args.recursive)
     )
 
     pool = ThreadPool()
@@ -91,18 +98,18 @@ def main(argv=None):
             all_valid = False
         for message in result.messages:
             messages.append(message)
-            if message.level == 'ERROR':
+            if message.level == "ERROR":
                 print(message.short, file=sys.stderr)
             else:
                 print(message.short)
 
     if args.csv:
-        args.csv.write(messages.export('csv', delimiter=compat.text_type(';')).encode())
+        args.csv.write(messages.export("csv", delimiter=compat.text_type(";")).encode())
         args.csv.close()
 
     if args.xls:
         databook = tablib.Databook((metas, messages))
-        args.xls.write(databook.xls)
+        args.xls.write(bytes(databook.export("xls")))
         args.xls.close()
 
     if all_valid:

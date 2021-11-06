@@ -15,9 +15,7 @@ def java_version():
 
     :return unicode: Java version string
     """
-    result = subprocess.check_output(
-        [c.JAVA, '-version'], stderr=subprocess.STDOUT
-    )
+    result = subprocess.check_output([c.JAVA, "-version"], stderr=subprocess.STDOUT)
     first_line = result.splitlines()[0]
     return first_line.decode()
 
@@ -32,7 +30,7 @@ def epubcheck_help():
 
     with open(os.devnull, "w") as devnull:
         p = subprocess.Popen(
-            [c.JAVA, '-Duser.language=en', '-jar', c.EPUBCHECK, '-h'],
+            [c.JAVA, "-Duser.language=en", "-jar", c.EPUBCHECK, "-h"],
             stdout=subprocess.PIPE,
             stderr=devnull,
         )
@@ -53,11 +51,11 @@ def generate_sample_json():
     """Generate sample json data for testing"""
 
     check = EpubCheck(samples.EPUB3_VALID)
-    with open(samples.RESULT_VALID, 'wb') as jsonfile:
+    with open(samples.RESULT_VALID, "wb") as jsonfile:
         jsonfile.write(check._stdout)
 
     check = EpubCheck(samples.EPUB3_INVALID)
-    with open(samples.RESULT_INVALID, 'wb') as jsonfile:
+    with open(samples.RESULT_INVALID, "wb") as jsonfile:
         jsonfile.write(check._stdout)
 
 
@@ -79,17 +77,17 @@ def iter_files(root, exts=None, recursive=False):
     if recursive is False:
         for entry in compat.scandir(root):
             if compat.has_scandir:
-                ext = splitext(entry.name)[-1].lstrip('.').lower()
+                ext = splitext(entry.name)[-1].lstrip(".").lower()
                 if entry.is_file() and matches(ext):
                     yield entry.path
             else:
-                ext = splitext(entry)[-1].lstrip('.').lower()
+                ext = splitext(entry)[-1].lstrip(".").lower()
                 if not compat.isdir(entry) and matches(ext):
                     yield join(root, entry)
     else:
         for root, folders, files in compat.walk(root):
             for f in files:
-                ext = splitext(f)[-1].lstrip('.').lower()
+                ext = splitext(f)[-1].lstrip(".").lower()
                 if matches(ext):
                     yield join(root, f)
 

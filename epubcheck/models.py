@@ -4,8 +4,10 @@ from collections import namedtuple
 
 
 _BaseChecker = namedtuple(
-    'Checker', 'path filename checkerVersion checkDate elapsedTime nFatal '
-               'nError nWarning nUsage')
+    "Checker",
+    "path filename checkerVersion checkDate elapsedTime nFatal "
+    "nError nWarning nUsage",
+)
 
 
 class Checker(_BaseChecker):
@@ -24,16 +26,16 @@ class Checker(_BaseChecker):
 
     @classmethod
     def from_data(cls, data):
-        return cls(**data['checker'])
+        return cls(**data["checker"])
 
 
 _BaseMeta = namedtuple(
-    'Meta',
-    'publisher title creator date subject description rights identifier '
-    'language nSpines checkSum renditionLayout renditionOrientation '
-    'renditionSpread ePubVersion isScripted hasFixedFormat isBackwardCompatible '
-    'hasAudio hasVideo charsCount embeddedFonts refFonts hasEncryption '
-    'hasSignatures contributors '
+    "Meta",
+    "publisher title creator date subject description rights identifier "
+    "language nSpines checkSum renditionLayout renditionOrientation "
+    "renditionSpread ePubVersion isScripted hasFixedFormat isBackwardCompatible "
+    "hasAudio hasVideo charsCount embeddedFonts refFonts hasEncryption "
+    "hasSignatures contributors ",
 )
 
 
@@ -68,13 +70,13 @@ class Meta(_BaseMeta):
 
     @classmethod
     def from_data(cls, data):
-        return cls(**data['publication'])
+        return cls(**data["publication"])
 
     def flatten(self):
-        return tuple(';'.join(x) if isinstance(x, list) else x for x in self)
+        return tuple(";".join(x) if isinstance(x, list) else x for x in self)
 
 
-_BaseMessage = namedtuple('Message', 'id level location message suggestion')
+_BaseMessage = namedtuple("Message", "id level location message suggestion")
 
 
 class Message(_BaseMessage):
@@ -89,7 +91,7 @@ class Message(_BaseMessage):
     """
 
     def __str__(self):
-        return ' | '.join(self._asdict().values())
+        return " | ".join(self._asdict().values())
 
     @classmethod
     def from_data(cls, data):
@@ -99,18 +101,18 @@ class Message(_BaseMessage):
         :return list[Message]: List of messages
         """
         messages = []
-        filename = data['checker']['filename']
-        for m in data['messages']:
-            for l_item in m['locations']:
-                location = l_item['path']
+        filename = data["checker"]["filename"]
+        for m in data["messages"]:
+            for l_item in m["locations"]:
+                location = l_item["path"]
                 if not location.startswith(filename):
-                    location = filename + '/' + location
-                if l_item['line'] != -1:
-                    location += ':{}'.format(l_item['line'])
-                if l_item['column'] != -1:
-                    location += ':{}'.format(l_item['column'])
+                    location = filename + "/" + location
+                if l_item["line"] != -1:
+                    location += ":{}".format(l_item["line"])
+                if l_item["column"] != -1:
+                    location += ":{}".format(l_item["column"])
                 messages.append(
-                    cls(m['ID'], m['severity'], location, m['message'], m['suggestion'])
+                    cls(m["ID"], m["severity"], location, m["message"], m["suggestion"])
                 )
         return messages
 

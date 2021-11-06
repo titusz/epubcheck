@@ -11,7 +11,7 @@ def validate(epub_path):
     """
 
     try:
-        subprocess.check_call([c.JAVA, '-jar', c.EPUBCHECK, epub_path])
+        subprocess.check_call([c.JAVA, "-jar", c.EPUBCHECK, epub_path])
         return True
     except subprocess.CalledProcessError:
         return False

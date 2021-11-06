@@ -16,13 +16,13 @@ class EpubCheck:
     :param bool autorun: wether to run the checking process on instantiation.
     """
 
-    DEFAULT = 'default'
-    DICT = 'dict'
-    EDUPUB = 'edupub'
-    IDX = 'idx'
-    PREVIEW = 'preview'
+    DEFAULT = "default"
+    DICT = "dict"
+    EDUPUB = "edupub"
+    IDX = "idx"
+    PREVIEW = "preview"
 
-    def __init__(self, infile, lang='en', profile=DEFAULT, autorun=True):
+    def __init__(self, infile, lang="en", profile=DEFAULT, autorun=True):
         self.infile = infile
         self.lang = lang
         self.profile = profile
@@ -41,15 +41,25 @@ class EpubCheck:
             self.run()
 
     def run(self):
-        lopt = '-Duser.language={}'.format(self.lang)
+        lopt = "-Duser.language={}".format(self.lang)
         cmd = [
-            c.JAVA, lopt, '-jar', c.EPUBCHECK, self.infile,
-            '-q', '--profile', self.profile, '--json', '-',
+            c.JAVA,
+            lopt,
+            "-jar",
+            c.EPUBCHECK,
+            self.infile,
+            "-q",
+            "--profile",
+            self.profile,
+            "--json",
+            "-",
         ]
 
         with open(os.devnull, "w") as devnull:
             process = subprocess.Popen(
-                cmd, stdout=subprocess.PIPE, stderr=devnull,
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=devnull,
             )
 
             self._stdout, self._stderr = process.communicate()
