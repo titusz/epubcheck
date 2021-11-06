@@ -7,8 +7,8 @@ environment:
     WITH_COMPILER: 'cmd /E:ON /V:ON /C .\ci\appveyor-with-compiler.cmd'
   matrix:
     - TOXENV: check
-      PYTHON_HOME: C:\Python27
-      PYTHON_VERSION: '2.7'
+      PYTHON_HOME: C:\Python36
+      PYTHON_VERSION: '3.6'
       PYTHON_ARCH: '32'
 
 {% for env in tox_environments %}{% if env.startswith(('py27', 'py34', 'py35')) %}

@@ -7,6 +7,12 @@ UNRELEASED
 
 * Fix CSV report.
 
+0.4.3 (2021-09-28)
+------------------
+
+* Update the epubcheck.jar to v4.2.6
+* Remove support for < Python 3.6
+
 0.4.2 (2019-08-07)
 ------------------
 

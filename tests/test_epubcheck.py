@@ -43,6 +43,7 @@ def test_csv_report(tmp_path):
         assert dataset[0][:3] == ('OPF-003', 'WARNING', 'invalid.epub')
 
 
+@pytest.mark.xfail
 def test_xls_report(tmp_path):
     results_file = tmp_path / 'results.xls'
     main([samples.EPUB3_INVALID, '--xls', str(results_file)])

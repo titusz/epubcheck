@@ -101,14 +101,14 @@ class Message(_BaseMessage):
         messages = []
         filename = data['checker']['filename']
         for m in data['messages']:
-            for l in m['locations']:
-                location = l['path']
+            for l_item in m['locations']:
+                location = l_item['path']
                 if not location.startswith(filename):
                     location = filename + '/' + location
-                if l['line'] != -1:
-                    location += ':{}'.format(l['line'])
-                if l['column'] != -1:
-                    location += ':{}'.format(l['column'])
+                if l_item['line'] != -1:
+                    location += ':{}'.format(l_item['line'])
+                if l_item['column'] != -1:
+                    location += ':{}'.format(l_item['column'])
                 messages.append(
                     cls(m['ID'], m['severity'], location, m['message'], m['suggestion'])
                 )
