@@ -16,8 +16,6 @@ classifiers = [
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
@@ -31,7 +29,7 @@ classifiers = [
 epubcheck = 'epubcheck.cli:main'
 
 [tool.poetry.dependencies]
-python = ">=3.6"
+python = ">=3.8"
 tablib = "*"
 xlwt = "*"
 xlrd = "*"
