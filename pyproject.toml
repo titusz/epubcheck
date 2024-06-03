@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "epubcheck"
-version = "4.2.6"
+version = "5.1.0"
 description = "Python epubcheck wrapper"
 authors = ["Titusz Pan <tp@py7.de>"]
 license = "BSD"

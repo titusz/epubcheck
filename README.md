@@ -77,6 +77,12 @@ Install [poetry](https://pypi.org/project/poetry/) checkout this repository and 
 
 ## Changelog
 
+### [5.1.0] - 2024-06-03
+- Update to epubcheck 5.1.0
+- Update dependencies
+- Remove support for Python 3.6 and 3.7
+- Add support for Python 3.11 and 3.12
+
 ### [4.2.6] - 2021-11-06
 - Bump versioning to match original epubcheck version
 - Modernize packaging and CI
