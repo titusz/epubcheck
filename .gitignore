@@ -47,6 +47,9 @@ htmlcov
 .history/
 .vscode/
 
+# Pycharm
+.idea/
+
 # Complexity
 output/*.html
 output/*/index.html
