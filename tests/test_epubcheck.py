@@ -39,7 +39,7 @@ def test_csv_report(tmp_path):
 
     with results_file.open("r") as f:
         dataset = tablib.Dataset().load(f.read(), format="csv", delimiter=";")
-        assert dataset[0][:3] == ("OPF-003", "WARNING", "invalid.epub")
+        assert dataset[0][:3] == ("OPF-004", "WARNING", "invalid.epub/EPUB/package.opf:1:129")
 
 
 def test_xls_report(tmp_path):

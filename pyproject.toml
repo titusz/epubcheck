@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "epubcheck"
-version = "4.2.6"
+version = "5.1.0"
 description = "Python epubcheck wrapper"
 authors = ["Titusz Pan <tp@py7.de>"]
 license = "BSD"
@@ -16,11 +16,11 @@ classifiers = [
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
 ]
@@ -29,7 +29,7 @@ classifiers = [
 epubcheck = 'epubcheck.cli:main'
 
 [tool.poetry.dependencies]
-python = ">=3.6"
+python = ">=3.8"
 tablib = "*"
 xlwt = "*"
 xlrd = "*"

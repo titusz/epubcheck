@@ -30,7 +30,7 @@ You must have Python & Java installed on your system. The original Java
 EpubCheck command line client itself is bundled in the
 [PyPi](https://pypi.org/project/epubcheck/) package.
 
-This package is tested with Python 3.6 - 3.10 on Linux, Mac and Windows.
+This package is tested with Python 3.8 - 3.12 on Linux, Mac and Windows.
 It should also work with PyPy.
 
 ## Quickstart
@@ -76,6 +76,12 @@ Install [poetry](https://pypi.org/project/poetry/) checkout this repository and 
 
 
 ## Changelog
+
+### [5.1.0] - 2024-06-03
+- Update to epubcheck 5.1.0
+- Update dependencies
+- Remove support for Python 3.6 and 3.7
+- Add support for Python 3.11 and 3.12
 
 ### [4.2.6] - 2021-11-06
 - Bump versioning to match original epubcheck version

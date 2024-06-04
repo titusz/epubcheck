@@ -2,5 +2,5 @@
 from epubcheck.wrap import validate
 from epubcheck.checker import EpubCheck
 
-__version__ = "4.2.6"
+__version__ = "5.1.0"
 __all__ = (validate, EpubCheck)
