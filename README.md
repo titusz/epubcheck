@@ -88,7 +88,7 @@ poe all
 
 ## Changelog
 
-### 5.1.0 - Unreleased
+### 5.1.0 - 2024-06-05
 
 - Update to epubcheck 5.1.0
 - Update dependencies
