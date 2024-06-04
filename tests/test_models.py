@@ -32,4 +32,5 @@ def test_message_from_data_invalid_returns_list():
     msgs = models.Message.from_data(INVALID)
     assert isinstance(msgs, list)
     assert isinstance(msgs[0], models.Message)
-    assert len(msgs) == 4
+    assert len(msgs) == 3
+    assert str(msgs[0]).startswith("OPF-004 | WARNING")

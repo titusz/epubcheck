@@ -11,7 +11,7 @@ if PY3:
     binary_type = bytes
 
     MAXSIZE = sys.maxsize
-else:
+else:  # pragma: no cover
     string_types = (basestring,)  # NOQA
     integer_types = (int, long)  # NOQA
     text_type = unicode  # NOQA

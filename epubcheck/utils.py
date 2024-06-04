@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Generic or common utility functions"""
+
 from __future__ import print_function, unicode_literals
 import os
 from os.path import splitext, join
@@ -47,7 +48,7 @@ def epubcheck_version():
     return epubcheck_help().splitlines()[0]
 
 
-def generate_sample_json():
+def generate_sample_json():  # pragma: no cover
     """Generate sample json data for testing"""
 
     check = EpubCheck(samples.EPUB3_VALID)
@@ -76,7 +77,7 @@ def iter_files(root, exts=None, recursive=False):
 
     if recursive is False:
         for entry in compat.scandir(root):
-            if compat.has_scandir:
+            if compat.has_scandir:  # pragma: no cover
                 ext = splitext(entry.name)[-1].lstrip(".").lower()
                 if entry.is_file() and matches(ext):
                     yield entry.path
@@ -93,4 +94,4 @@ def iter_files(root, exts=None, recursive=False):
 
 
 if __name__ == "__main__":
-    generate_sample_json()
+    generate_sample_json()  # pragma: no cover

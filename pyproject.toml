@@ -34,10 +34,27 @@ tablib = "*"
 xlwt = "*"
 xlrd = "*"
 
-
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.test.dependencies]
 pytest = "*"
-black = { version = "*", allow-prereleases = true }
+coverage = "*"
+pytest-cov = "*"
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "*"
+ruff = "*"
+mdformat-gfm = "*"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.poe.tasks]
+format-code = { cmd = "poetry run ruff format", help = "Code style formating with ruff" }
+format-markdown = { cmd = "mdformat --wrap 100 --end-of-line lf .", help = "Markdown formating with mdformat" }
+test = { cmd = "poetry run pytest --cov=epubcheck --cov-fail-under=100 --cov-report=term-missing", help = "Run tests with coverage" }
+all = ["format-code", "format-markdown", "test"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

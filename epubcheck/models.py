@@ -5,8 +5,7 @@ from collections import namedtuple
 
 _BaseChecker = namedtuple(
     "Checker",
-    "path filename checkerVersion checkDate elapsedTime nFatal "
-    "nError nWarning nUsage",
+    "path filename checkerVersion checkDate elapsedTime nFatal " "nError nWarning nUsage",
 )
 
 
@@ -91,7 +90,7 @@ class Message(_BaseMessage):
     """
 
     def __str__(self):
-        return " | ".join(self._asdict().values())
+        return " | ".join(str(v) for v in self._asdict().values())
 
     @classmethod
     def from_data(cls, data):

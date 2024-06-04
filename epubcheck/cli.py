@@ -2,6 +2,7 @@
 """
 Module that contains the command line app.
 """
+
 from __future__ import unicode_literals, print_function
 import os
 import sys
@@ -14,7 +15,7 @@ from epubcheck.utils import iter_files
 from epubcheck import compat
 
 if compat.PY2:
-    from os import getcwdu as getcwd
+    from os import getcwdu as getcwd  # pragma: no cover
 else:
     from os import getcwd
 
@@ -59,9 +60,7 @@ def create_parser():
         help="Create a CSV report.",
     )
 
-    parser.add_argument(
-        "-r", "--recursive", action="store_true", help="Recurse into subfolders."
-    )
+    parser.add_argument("-r", "--recursive", action="store_true", help="Recurse into subfolders.")
 
     return parser
 
@@ -76,14 +75,12 @@ def main(argv=None):
     args = parser.parse_args() if argv is None else parser.parse_args(argv)
 
     if not os.path.exists(args.path):
-        sys.exit(0)
+        sys.exit(0)  # pragma: no cover
 
     all_valid = True
     single = os.path.isfile(args.path)
     files = (
-        [args.path]
-        if single
-        else iter_files(args.path, exts=("epub",), recursive=args.recursive)
+        [args.path] if single else iter_files(args.path, exts=("epub",), recursive=args.recursive)
     )
 
     pool = ThreadPool()

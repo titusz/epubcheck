@@ -1,11 +1,60 @@
 {
+  "messages" : [ {
+    "ID" : "OPF-004",
+    "severity" : "WARNING",
+    "message" : "Invalid prefix declaration: leading or trailing whitespace is not allowed.",
+    "additionalLocations" : 0,
+    "locations" : [ {
+      "url" : {
+        "opaque" : false,
+        "hierarchical" : true
+      },
+      "path" : "EPUB/package.opf",
+      "line" : 1,
+      "column" : 129,
+      "context" : null
+    } ],
+    "suggestion" : null
+  }, {
+    "ID" : "OPF-049",
+    "severity" : "ERROR",
+    "message" : "Item id \"cover\" was not found in the manifest.",
+    "additionalLocations" : 0,
+    "locations" : [ {
+      "url" : {
+        "opaque" : false,
+        "hierarchical" : true
+      },
+      "path" : "EPUB/package.opf",
+      "line" : 40,
+      "column" : 29,
+      "context" : null
+    } ],
+    "suggestion" : null
+  }, {
+    "ID" : "RSC-005",
+    "severity" : "ERROR",
+    "message" : "Error while parsing file: itemref element idref attribute does not resolve to a manifest item element",
+    "additionalLocations" : 0,
+    "locations" : [ {
+      "url" : {
+        "opaque" : false,
+        "hierarchical" : true
+      },
+      "path" : "EPUB/package.opf",
+      "line" : 40,
+      "column" : 29,
+      "context" : null
+    } ],
+    "suggestion" : null
+  } ],
   "customMessageFileName" : null,
   "checker" : {
-    "path" : "./samples/invalid.epub",
+    "path" : ".\\samples\\invalid.epub",
     "filename" : "invalid.epub",
-    "checkerVersion" : "4.2.1",
-    "checkDate" : "07-05-2019 13:09:52",
-    "elapsedTime" : 3451,
+    "checkerVersion" : "5.1.0",
+    "checkDate" : "06-04-2024 23:40:02",
+    "elapsedTime" : 4163,
     "nFatal" : 0,
     "nError" : 2,
     "nWarning" : 1,
@@ -26,7 +75,7 @@
     "renditionLayout" : "reflowable",
     "renditionOrientation" : "auto",
     "renditionSpread" : "auto",
-    "ePubVersion" : "3.2",
+    "ePubVersion" : "3.3",
     "isScripted" : true,
     "hasFixedFormat" : false,
     "isBackwardCompatible" : false,
@@ -39,48 +88,6 @@
     "hasSignatures" : false,
     "contributors" : [ "calibre (3.44.0) [https://calibre-ebook.com]" ]
   },
-  "messages" : [ {
-    "ID" : "OPF-003",
-    "severity" : "WARNING",
-    "message" : "Item 'EPUB/cover.xhtml' exists in the EPUB, but is not declared in the OPF manifest.",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "invalid.epub",
-      "line" : -1,
-      "column" : -1,
-      "context" : null
-    } ],
-    "suggestion" : null
-  }, {
-    "ID" : "OPF-049",
-    "severity" : "ERROR",
-    "message" : "Item id 'cover' was not found in the manifest.",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "EPUB/package.opf",
-      "line" : 40,
-      "column" : 29,
-      "context" : null
-    }, {
-      "path" : "EPUB/toc.ncx",
-      "line" : -1,
-      "column" : -1,
-      "context" : "EPUB"
-    } ],
-    "suggestion" : null
-  }, {
-    "ID" : "RSC-005",
-    "severity" : "ERROR",
-    "message" : "Error while parsing file: itemref element idref attribute does not resolve to a manifest item element",
-    "additionalLocations" : 0,
-    "locations" : [ {
-      "path" : "EPUB/package.opf",
-      "line" : 40,
-      "column" : 29,
-      "context" : null
-    } ],
-    "suggestion" : null
-  } ],
   "items" : [ {
     "id" : "cover-img",
     "fileName" : "EPUB/images/cover.png",
@@ -92,13 +99,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -114,13 +116,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -136,13 +133,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -158,13 +150,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -173,20 +160,32 @@
     "id" : "ePubCheck.NoManifestRef:EPUB/package.opf",
     "fileName" : "EPUB/package.opf",
     "media_type" : null,
-    "compressedSize" : 971,
-    "uncompressedSize" : 2700,
+    "compressedSize" : 972,
+    "uncompressedSize" : 2701,
     "compressionMethod" : "Deflated",
-    "checkSum" : "408a944d97fcbcf9c920fffe7623429c8983658de88a193eddf396689d6236a",
+    "checkSum" : "41174be77d804ab8745479d4d5fdf4fb7fd64f6530ef25d0cc47d5a295816b",
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
+    "renditionLayout" : null,
+    "renditionOrientation" : null,
+    "renditionSpread" : null,
+    "referencedItems" : [ ]
+  }, {
+    "id" : "ePubCheck.NoManifestRef:EPUB/xcover.xhtml",
+    "fileName" : "EPUB/xcover.xhtml",
+    "media_type" : null,
+    "compressedSize" : 259,
+    "uncompressedSize" : 392,
+    "compressionMethod" : "Deflated",
+    "checkSum" : "619bb45af8bd5cca56140d159cbe64837e9220304421f1f36446afa26756a",
+    "isSpineItem" : false,
+    "spineIndex" : null,
+    "isLinear" : false,
+    "isFixedFormat" : null,
+    "isScripted" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -202,13 +201,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -224,13 +218,8 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
@@ -246,17 +235,12 @@
     "isSpineItem" : true,
     "spineIndex" : 0,
     "isLinear" : true,
-    "navigationOrder" : null,
-    "isHTML5" : true,
     "isFixedFormat" : false,
     "isScripted" : true,
-    "scriptSrc" : false,
-    "scriptTag" : true,
-    "scriptInline" : false,
     "renditionLayout" : "reflowable",
     "renditionOrientation" : "auto",
     "renditionSpread" : "auto",
-    "referencedItems" : [ "EPUB/css/epub.css", "EPUB/css/nav.css", "EPUB/s04.xhtml" ]
+    "referencedItems" : [ "EPUB/css/epub.css", "EPUB/css/nav.css", "EPUB/nav.xhtml#toc", "EPUB/s04.xhtml#Page_169", "EPUB/s04.xhtml#Page_170", "EPUB/s04.xhtml#Page_171", "EPUB/s04.xhtml#Page_172", "EPUB/s04.xhtml#Page_173", "EPUB/s04.xhtml#Page_174", "EPUB/s04.xhtml#Page_175", "EPUB/s04.xhtml#Page_176", "EPUB/s04.xhtml#Page_177", "EPUB/s04.xhtml#Page_178", "EPUB/s04.xhtml#Page_179", "EPUB/s04.xhtml#Page_180", "EPUB/s04.xhtml#Page_181", "EPUB/s04.xhtml#Page_182", "EPUB/s04.xhtml#Page_183", "EPUB/s04.xhtml#Page_184", "EPUB/s04.xhtml#Page_185", "EPUB/s04.xhtml#Page_186", "EPUB/s04.xhtml#Page_187", "EPUB/s04.xhtml#Page_188", "EPUB/s04.xhtml#Page_189", "EPUB/s04.xhtml#Page_190", "EPUB/s04.xhtml#Page_191", "EPUB/s04.xhtml#Page_192", "EPUB/s04.xhtml#Page_193", "EPUB/s04.xhtml#Page_194", "EPUB/s04.xhtml#Page_195", "EPUB/s04.xhtml#Page_196", "EPUB/s04.xhtml#Page_197", "EPUB/s04.xhtml#Page_198", "EPUB/s04.xhtml#Page_199", "EPUB/s04.xhtml#Page_200", "EPUB/s04.xhtml#Page_201", "EPUB/s04.xhtml#Page_202", "EPUB/s04.xhtml#Page_203", "EPUB/s04.xhtml#Page_204", "EPUB/s04.xhtml#Page_205", "EPUB/s04.xhtml#Page_206", "EPUB/s04.xhtml#Page_207", "EPUB/s04.xhtml#Page_208", "EPUB/s04.xhtml#Page_209", "EPUB/s04.xhtml#Page_210", "EPUB/s04.xhtml#Page_211", "EPUB/s04.xhtml#Page_212", "EPUB/s04.xhtml#Page_213", "EPUB/s04.xhtml#Page_214", "EPUB/s04.xhtml#Page_215", "EPUB/s04.xhtml#Page_216", "EPUB/s04.xhtml#Page_217", "EPUB/s04.xhtml#Page_218", "EPUB/s04.xhtml#Page_219", "EPUB/s04.xhtml#Page_220", "EPUB/s04.xhtml#Page_221", "EPUB/s04.xhtml#Page_222", "EPUB/s04.xhtml#Page_223", "EPUB/s04.xhtml#Page_224", "EPUB/s04.xhtml#Page_225", "EPUB/s04.xhtml#Page_226", "EPUB/s04.xhtml#Page_227", "EPUB/s04.xhtml#Page_228", "EPUB/s04.xhtml#Page_229", "EPUB/s04.xhtml#Page_230", "EPUB/s04.xhtml#Page_231", "EPUB/s04.xhtml#Page_232", "EPUB/s04.xhtml#Page_233", "EPUB/s04.xhtml#Page_234", "EPUB/s04.xhtml#Page_235", "EPUB/s04.xhtml#Page_236", "EPUB/s04.xhtml#Page_237", "EPUB/s04.xhtml#Page_238", "EPUB/s04.xhtml#Page_239", "EPUB/s04.xhtml#Page_240", "EPUB/s04.xhtml#Page_241", "EPUB/s04.xhtml#Page_242", "EPUB/s04.xhtml#Page_243", "EPUB/s04.xhtml#Page_244", "EPUB/s04.xhtml#Page_245", "EPUB/s04.xhtml#Page_246", "EPUB/s04.xhtml#Page_247", "EPUB/s04.xhtml#Page_248", "EPUB/s04.xhtml#Page_249", "EPUB/s04.xhtml#Page_250", "EPUB/s04.xhtml#Page_251", "EPUB/s04.xhtml#Page_252", "EPUB/s04.xhtml#Page_253", "EPUB/s04.xhtml#Page_254", "EPUB/s04.xhtml#Page_255", "EPUB/s04.xhtml#Page_256", "EPUB/s04.xhtml#Page_257", "EPUB/s04.xhtml#Page_258", "EPUB/s04.xhtml#Page_259", "EPUB/s04.xhtml#Page_260", "EPUB/s04.xhtml#pgepubid00492", "EPUB/s04.xhtml#pgepubid00495", "EPUB/s04.xhtml#pgepubid00498", "EPUB/s04.xhtml#pgepubid00503", "EPUB/s04.xhtml#pgepubid00508", "EPUB/s04.xhtml#pgepubid00512", "EPUB/s04.xhtml#pgepubid00515", "EPUB/s04.xhtml#pgepubid00520", "EPUB/s04.xhtml#pgepubid00529", "EPUB/s04.xhtml#pgepubid00536", "EPUB/s04.xhtml#pgepubid00543", "EPUB/s04.xhtml#pgepubid00548", "EPUB/s04.xhtml#pgepubid00556", "EPUB/s04.xhtml#pgepubid00566", "EPUB/s04.xhtml#pgepubid00574", "EPUB/s04.xhtml#pgepubid00580", "EPUB/s04.xhtml#pgepubid00588", "EPUB/s04.xhtml#pgepubid00602", "EPUB/s04.xhtml#pgepubid99001", "EPUB/s04.xhtml#pgepubid99002", "EPUB/s04.xhtml#pgepubid99003", "EPUB/s04.xhtml#pgepubid99004" ]
   }, {
     "id" : "ncx",
     "fileName" : "EPUB/toc.ncx",
@@ -268,17 +252,12 @@
     "isSpineItem" : false,
     "spineIndex" : null,
     "isLinear" : false,
-    "navigationOrder" : null,
-    "isHTML5" : false,
     "isFixedFormat" : null,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : null,
     "renditionOrientation" : null,
     "renditionSpread" : null,
-    "referencedItems" : [ "EPUB/s04.xhtml" ]
+    "referencedItems" : [ "EPUB/s04.xhtml#Page_169", "EPUB/s04.xhtml#Page_170", "EPUB/s04.xhtml#Page_171", "EPUB/s04.xhtml#Page_172", "EPUB/s04.xhtml#Page_173", "EPUB/s04.xhtml#Page_174", "EPUB/s04.xhtml#Page_175", "EPUB/s04.xhtml#Page_176", "EPUB/s04.xhtml#Page_177", "EPUB/s04.xhtml#Page_178", "EPUB/s04.xhtml#Page_179", "EPUB/s04.xhtml#Page_180", "EPUB/s04.xhtml#Page_181", "EPUB/s04.xhtml#Page_182", "EPUB/s04.xhtml#Page_183", "EPUB/s04.xhtml#Page_184", "EPUB/s04.xhtml#Page_185", "EPUB/s04.xhtml#Page_186", "EPUB/s04.xhtml#Page_187", "EPUB/s04.xhtml#Page_188", "EPUB/s04.xhtml#Page_189", "EPUB/s04.xhtml#Page_190", "EPUB/s04.xhtml#Page_191", "EPUB/s04.xhtml#Page_192", "EPUB/s04.xhtml#Page_193", "EPUB/s04.xhtml#Page_194", "EPUB/s04.xhtml#Page_195", "EPUB/s04.xhtml#Page_196", "EPUB/s04.xhtml#Page_197", "EPUB/s04.xhtml#Page_198", "EPUB/s04.xhtml#Page_199", "EPUB/s04.xhtml#Page_200", "EPUB/s04.xhtml#Page_201", "EPUB/s04.xhtml#Page_202", "EPUB/s04.xhtml#Page_203", "EPUB/s04.xhtml#Page_204", "EPUB/s04.xhtml#Page_205", "EPUB/s04.xhtml#Page_206", "EPUB/s04.xhtml#Page_207", "EPUB/s04.xhtml#Page_208", "EPUB/s04.xhtml#Page_209", "EPUB/s04.xhtml#Page_210", "EPUB/s04.xhtml#Page_211", "EPUB/s04.xhtml#Page_212", "EPUB/s04.xhtml#Page_213", "EPUB/s04.xhtml#Page_214", "EPUB/s04.xhtml#Page_215", "EPUB/s04.xhtml#Page_216", "EPUB/s04.xhtml#Page_217", "EPUB/s04.xhtml#Page_218", "EPUB/s04.xhtml#Page_219", "EPUB/s04.xhtml#Page_220", "EPUB/s04.xhtml#Page_221", "EPUB/s04.xhtml#Page_222", "EPUB/s04.xhtml#Page_223", "EPUB/s04.xhtml#Page_224", "EPUB/s04.xhtml#Page_225", "EPUB/s04.xhtml#Page_226", "EPUB/s04.xhtml#Page_227", "EPUB/s04.xhtml#Page_228", "EPUB/s04.xhtml#Page_229", "EPUB/s04.xhtml#Page_230", "EPUB/s04.xhtml#Page_231", "EPUB/s04.xhtml#Page_232", "EPUB/s04.xhtml#Page_233", "EPUB/s04.xhtml#Page_234", "EPUB/s04.xhtml#Page_235", "EPUB/s04.xhtml#Page_236", "EPUB/s04.xhtml#Page_237", "EPUB/s04.xhtml#Page_238", "EPUB/s04.xhtml#Page_239", "EPUB/s04.xhtml#Page_240", "EPUB/s04.xhtml#Page_241", "EPUB/s04.xhtml#Page_242", "EPUB/s04.xhtml#Page_243", "EPUB/s04.xhtml#Page_244", "EPUB/s04.xhtml#Page_245", "EPUB/s04.xhtml#Page_246", "EPUB/s04.xhtml#Page_247", "EPUB/s04.xhtml#Page_248", "EPUB/s04.xhtml#Page_249", "EPUB/s04.xhtml#Page_250", "EPUB/s04.xhtml#Page_251", "EPUB/s04.xhtml#Page_252", "EPUB/s04.xhtml#Page_253", "EPUB/s04.xhtml#Page_254", "EPUB/s04.xhtml#Page_255", "EPUB/s04.xhtml#Page_256", "EPUB/s04.xhtml#Page_257", "EPUB/s04.xhtml#Page_258", "EPUB/s04.xhtml#Page_259", "EPUB/s04.xhtml#Page_260", "EPUB/s04.xhtml#pgepubid00492", "EPUB/s04.xhtml#pgepubid00495", "EPUB/s04.xhtml#pgepubid00498", "EPUB/s04.xhtml#pgepubid00503", "EPUB/s04.xhtml#pgepubid00508", "EPUB/s04.xhtml#pgepubid00512", "EPUB/s04.xhtml#pgepubid00515", "EPUB/s04.xhtml#pgepubid00520", "EPUB/s04.xhtml#pgepubid00529", "EPUB/s04.xhtml#pgepubid00536", "EPUB/s04.xhtml#pgepubid00543", "EPUB/s04.xhtml#pgepubid00548", "EPUB/s04.xhtml#pgepubid00556", "EPUB/s04.xhtml#pgepubid00566", "EPUB/s04.xhtml#pgepubid00574", "EPUB/s04.xhtml#pgepubid00580", "EPUB/s04.xhtml#pgepubid00588", "EPUB/s04.xhtml#pgepubid00602", "EPUB/s04.xhtml#pgepubid99001", "EPUB/s04.xhtml#pgepubid99002", "EPUB/s04.xhtml#pgepubid99003", "EPUB/s04.xhtml#pgepubid99004" ]
   }, {
     "id" : "s04",
     "fileName" : "EPUB/s04.xhtml",
@@ -290,16 +269,11 @@
     "isSpineItem" : true,
     "spineIndex" : 1,
     "isLinear" : true,
-    "navigationOrder" : null,
-    "isHTML5" : true,
     "isFixedFormat" : false,
     "isScripted" : false,
-    "scriptSrc" : false,
-    "scriptTag" : false,
-    "scriptInline" : false,
     "renditionLayout" : "reflowable",
     "renditionOrientation" : "auto",
     "renditionSpread" : "auto",
-    "referencedItems" : [ "EPUB/css/epub.css" ]
+    "referencedItems" : [ "EPUB/css/epub.css", "EPUB/s04.xhtml#s04-a01", "EPUB/s04.xhtml#s04-a02", "EPUB/s04.xhtml#s04-a03" ]
   } ]
 }
