@@ -1,22 +1,3 @@
-# -*- coding: utf-8 -*-
-import sys
-
-PY2 = sys.version_info[0] == 2
-PY3 = sys.version_info[0] == 3
-
-if PY3:
-    string_types = (str,)
-    integer_types = (int,)
-    text_type = str
-    binary_type = bytes
-
-    MAXSIZE = sys.maxsize
-else:  # pragma: no cover
-    string_types = (basestring,)  # NOQA
-    integer_types = (int, long)  # NOQA
-    text_type = unicode  # NOQA
-    binary_type = str
-
 has_scandir = True
 
 

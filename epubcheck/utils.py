@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 """Generic or common utility functions"""
 
-from __future__ import print_function, unicode_literals
 import os
 from os.path import splitext, join
 import subprocess
@@ -63,14 +61,14 @@ def generate_sample_json():  # pragma: no cover
 def iter_files(root, exts=None, recursive=False):
     """
     Iterate over file paths within root filtered by specified extensions.
-    :param compat.string_types root: Root folder to start collecting files
+    :param str root: Root folder to start collecting files
     :param iterable exts: Restrict results to given file extensions
     :param bool recursive: Wether to walk the complete directory tree
     :rtype collections.Iterable[str]: absolute file paths with given extensions
     """
 
     if exts is not None:
-        exts = set((x.lower() for x in exts))
+        exts = set(x.lower() for x in exts)
 
     def matches(e):
         return (exts is None) or (e in exts)
