@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 """Generic or common utility functions"""
 
-from __future__ import print_function, unicode_literals
 import os
 from os.path import splitext, join
 import subprocess
@@ -70,7 +68,7 @@ def iter_files(root, exts=None, recursive=False):
     """
 
     if exts is not None:
-        exts = set((x.lower() for x in exts))
+        exts = set(x.lower() for x in exts)
 
     def matches(e):
         return (exts is None) or (e in exts)

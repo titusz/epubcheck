@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import types
 from os.path import abspath, dirname, join
 from epubcheck import utils, samples

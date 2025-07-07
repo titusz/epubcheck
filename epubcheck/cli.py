@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 """
 Module that contains the command line app.
 """
 
-from __future__ import unicode_literals, print_function
 import os
 import sys
 from argparse import ArgumentParser, FileType
@@ -22,7 +20,7 @@ def create_parser():
 
     parser = ArgumentParser(
         prog="epubcheck",
-        description="EpubCheck v%s - Validate your ebooks" % __version__,
+        description=f"EpubCheck v{__version__} - Validate your ebooks",
     )
 
     # Arguments
@@ -95,7 +93,7 @@ def main(argv=None):
                 print(message.short)
 
     if args.csv:
-        args.csv.write(messages.export("csv", delimiter=str(";")).encode())
+        args.csv.write(messages.export("csv", delimiter=";").encode())
         args.csv.close()
 
     if args.xls:
