@@ -12,12 +12,6 @@ import tablib
 from epubcheck import __version__, EpubCheck
 from epubcheck.models import Checker, Meta, Message
 from epubcheck.utils import iter_files
-from epubcheck import compat
-
-if compat.PY2:
-    from os import getcwdu as getcwd  # pragma: no cover
-else:
-    from os import getcwd
 
 
 def create_parser():
@@ -35,7 +29,7 @@ def create_parser():
     parser.add_argument(
         "path",
         nargs="?",
-        default=getcwd(),
+        default=os.getcwd(),
         help="Path to EPUB-file or folder for batch validation. "
         "The current directory will be processed if this argument "
         "is not specified.",
@@ -101,7 +95,7 @@ def main(argv=None):
                 print(message.short)
 
     if args.csv:
-        args.csv.write(messages.export("csv", delimiter=compat.text_type(";")).encode())
+        args.csv.write(messages.export("csv", delimiter=str(";")).encode())
         args.csv.close()
 
     if args.xls:

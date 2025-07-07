@@ -16,7 +16,7 @@ def test_checker_from_data():
 def test_meta_from_data():
     meta = models.Meta.from_data(VALID)
     assert isinstance(meta, models.Meta)
-    assert isinstance(meta.title, compat.text_type)
+    assert isinstance(meta.title, str)
     assert isinstance(meta.creator, list)
     assert isinstance(meta.isScripted, bool)
     assert isinstance(meta.charsCount, int)
