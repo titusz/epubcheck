@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 has_scandir = True
 
 

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import os
 import json
 import subprocess
@@ -41,7 +39,7 @@ class EpubCheck:
             self.run()
 
     def run(self):
-        lopt = "-Duser.language={}".format(self.lang)
+        lopt = f"-Duser.language={self.lang}"
         cmd = [
             c.JAVA,
             lopt,

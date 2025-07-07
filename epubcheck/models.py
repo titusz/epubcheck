@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from collections import namedtuple
 
 
@@ -118,4 +116,4 @@ class Message(_BaseMessage):
     @property
     def short(self):
         """Short string representation of message"""
-        return "{m.level} - {m.id} - {m.location} - {m.message}".format(m=self)
+        return f"{self.level} - {self.id} - {self.location} - {self.message}"
