@@ -90,6 +90,7 @@ poe all
 
 ### 5.3.0 - Unreleased
 
+- Update to epubcheck 5.3.0
 - Add support for Python 3.14
 
 ### 5.2.0 - Unreleased
