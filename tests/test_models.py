@@ -2,8 +2,11 @@ import json
 from epubcheck import models, samples
 
 
-VALID = json.load(open(samples.RESULT_VALID))
-INVALID = json.load(open(samples.RESULT_INVALID))
+with open(samples.RESULT_VALID) as f:
+    VALID = json.load(f)
+
+with open(samples.RESULT_INVALID) as f:
+    INVALID = json.load(f)
 
 
 def test_checker_from_data():

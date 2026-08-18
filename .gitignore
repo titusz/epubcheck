@@ -20,6 +20,7 @@ lib
 lib64
 venv*/
 pyvenv*/
+.venv/
 
 # Installer logs
 pip-log.txt
@@ -68,3 +69,6 @@ docs/_build
 .bootstrap
 .appveyor.token
 *.bak
+
+# Bubbling, alchemical, where secret raw ingredients transform ;)
+cauldron/

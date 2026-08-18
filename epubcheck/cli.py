@@ -4,7 +4,7 @@ Module that contains the command line app.
 
 import os
 import sys
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
 from multiprocessing.dummy import Pool as ThreadPool
 import tablib
 from epubcheck import __version__, EpubCheck
@@ -38,7 +38,6 @@ def create_parser():
         "-x",
         "--xls",
         nargs="?",
-        type=FileType(mode="wb"),
         const="epubcheck_report.xls",
         help="Create a detailed Excel report.",
     )
@@ -47,7 +46,6 @@ def create_parser():
         "-c",
         "--csv",
         nargs="?",
-        type=FileType(mode="wb"),
         const="epubcheck_report.csv",
         help="Create a CSV report.",
     )
@@ -55,6 +53,44 @@ def create_parser():
     parser.add_argument("-r", "--recursive", action="store_true", help="Recurse into subfolders.")
 
     return parser
+
+
+def open_report(parser, target):
+    """Open a report target for binary writing.
+
+    Maps ``-`` to stdout and turns unusable paths into an argparse usage error,
+    mirroring the deprecated ``argparse.FileType`` this replaces. Targets are
+    opened before validation starts so bad paths fail fast.
+
+    :param ArgumentParser parser: Parser used to report unusable targets
+    :param str | None target: Filesystem path, ``-`` for stdout, or None
+    :return tuple | None: ``(file, close_it)`` pair, or None if no target was given
+    """
+
+    if target is None:
+        return None
+    if target == "-":
+        return sys.stdout.buffer, False
+    try:
+        return open(target, "wb"), True
+    except OSError as exc:
+        parser.error(f"can't open '{target}': {exc}")
+
+
+def write_report(report, data):
+    """Write an encoded report and close the file if we own it.
+
+    :param tuple report: ``(file, close_it)`` pair from :func:`open_report`
+    :param bytes data: Encoded report content
+    """
+
+    fileobj, close_it = report
+    try:
+        fileobj.write(data)
+        fileobj.flush()
+    finally:
+        if close_it:
+            fileobj.close()
 
 
 def main(argv=None):
@@ -67,7 +103,11 @@ def main(argv=None):
     args = parser.parse_args() if argv is None else parser.parse_args(argv)
 
     if not os.path.exists(args.path):
-        sys.exit(0)  # pragma: no cover
+        print(f"epubcheck: error: no such file or directory: {args.path}", file=sys.stderr)
+        return 1
+
+    csv_report = open_report(parser, args.csv)
+    xls_report = open_report(parser, args.xls)
 
     all_valid = True
     single = os.path.isfile(args.path)
@@ -75,31 +115,27 @@ def main(argv=None):
         [args.path] if single else iter_files(args.path, exts=("epub",), recursive=args.recursive)
     )
 
-    pool = ThreadPool()
-    results = pool.imap_unordered(EpubCheck, files)
-
     metas = tablib.Dataset(headers=Checker._fields + Meta._fields)
     messages = tablib.Dataset(headers=Message._fields)
 
-    for result in results:
-        metas.append(result.checker + result.meta.flatten())
-        if not result.valid:
-            all_valid = False
-        for message in result.messages:
-            messages.append(message)
-            if message.level == "ERROR":
-                print(message.short, file=sys.stderr)
-            else:
-                print(message.short)
+    with ThreadPool() as pool:
+        for result in pool.imap_unordered(EpubCheck, files):
+            metas.append(result.checker + result.meta.flatten())
+            if not result.valid:
+                all_valid = False
+            for message in result.messages:
+                messages.append(message)
+                if message.level == "ERROR":
+                    print(message.short, file=sys.stderr)
+                else:
+                    print(message.short)
 
-    if args.csv:
-        args.csv.write(messages.export("csv", delimiter=";").encode())
-        args.csv.close()
+    if csv_report is not None:
+        write_report(csv_report, messages.export("csv", delimiter=";").encode())
 
-    if args.xls:
+    if xls_report is not None:
         databook = tablib.Databook((metas, messages))
-        args.xls.write(bytes(databook.export("xls")))
-        args.xls.close()
+        write_report(xls_report, bytes(databook.export("xls")))
 
     if all_valid:
         return 0
