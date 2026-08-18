@@ -40,7 +40,7 @@ def epubcheck_help():
 def epubcheck_version():
     """Call epubcheck -h and return helptext.
 
-    :return unicode: Epubcheck verstion string
+    :return unicode: Epubcheck version string
     """
     return epubcheck_help().splitlines()[0]
 
@@ -62,7 +62,7 @@ def iter_files(root, exts=None, recursive=False):
     Iterate over file paths within root filtered by specified extensions.
     :param str root: Root folder to start collecting files
     :param iterable exts: Restrict results to given file extensions
-    :param bool recursive: Wether to walk the complete directory tree
+    :param bool recursive: Whether to walk the complete directory tree
     :rtype collections.Iterable[str]: absolute file paths with given extensions
     """
 

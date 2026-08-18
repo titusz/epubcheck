@@ -35,7 +35,7 @@ PyPy.
 
 ### Command line usage examples
 
-Validata all epub files in the current directory:
+Validate all epub files in the current directory:
 
 ```
 $ epubcheck
@@ -118,7 +118,7 @@ poe all
 
 ### 0.3.1 - 2016-04-20
 
-- Added custom PY2/PY3 compat module and removed dependancy on six
+- Added custom PY2/PY3 compat module and removed dependency on six
 
 ### 0.3.0 - 2016-04-10
 

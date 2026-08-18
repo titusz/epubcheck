@@ -10,8 +10,8 @@ class EpubCheck:
 
     :param str infile: path to epubfile to be checked
     :param str lang: set language for generated messages
-    :param str profile: name of epubcheck profule to use
-    :param bool autorun: wether to run the checking process on instantiation.
+    :param str profile: name of epubcheck profile to use
+    :param bool autorun: whether to run the checking process on instantiation.
     """
 
     DEFAULT = "default"
