@@ -1,5 +1,5 @@
 import json
-from epubcheck import compat, models, samples
+from epubcheck import models, samples
 
 
 VALID = json.load(open(samples.RESULT_VALID))

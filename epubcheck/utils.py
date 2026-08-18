@@ -5,7 +5,6 @@ from os.path import splitext, join
 import subprocess
 from epubcheck import samples
 from epubcheck import const as c
-from epubcheck import compat
 from epubcheck.checker import EpubCheck
 
 
@@ -74,21 +73,16 @@ def iter_files(root, exts=None, recursive=False):
         return (exts is None) or (e in exts)
 
     if recursive is False:
-        for entry in compat.scandir(root):
-            if compat.has_scandir:  # pragma: no cover
-                ext = splitext(entry.name)[-1].lstrip(".").lower()
-                if entry.is_file() and matches(ext):
-                    yield entry.path
-            else:
-                ext = splitext(entry)[-1].lstrip(".").lower()
-                if not compat.isdir(entry) and matches(ext):
-                    yield join(root, entry)
+        for entry in os.scandir(root):
+            ext = splitext(entry.name)[-1].lstrip(".").lower()
+            if entry.is_file() and matches(ext):
+                yield entry.path
     else:
-        for root, folders, files in compat.walk(root):
+        for dirpath, folders, files in os.walk(root):
             for f in files:
                 ext = splitext(f)[-1].lstrip(".").lower()
                 if matches(ext):
-                    yield join(root, f)
+                    yield join(dirpath, f)
 
 
 if __name__ == "__main__":
