@@ -1,5 +1,10 @@
 name: Tests
-on: [push, pull_request]
+on:
+  # Tag pushes are excluded, the release workflow calls this one for those.
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_call:
 
 jobs:
   tests:

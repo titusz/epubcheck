@@ -103,6 +103,24 @@ Run code formatting, coverage, and tests with:
 uv run poe all
 ```
 
+### Releasing
+
+Releases are published to PyPI by GitHub Actions when a version tag is pushed. To cut one, set
+`version` in `pyproject.toml` and `__version__` in `epubcheck/__init__.py` to the new version, give
+that version's changelog section a release date, merge to `master`, and then:
+
+```shell
+git tag v5.3.0
+git push origin v5.3.0
+```
+
+The workflow checks that the tag, both version declarations and the changelog agree, runs the full
+test matrix against the tagged commit, builds the artifacts and validates a sample EPUB with the
+built wheel, uploads to PyPI, and finally creates the GitHub release from the changelog entry. Any
+failing check stops the release before anything is published. Uploads use
+[trusted publishing](https://docs.pypi.org/trusted-publishers/), so no PyPI token is stored in the
+repository.
+
 ## Changelog
 
 ### 5.3.0 - Unreleased
@@ -116,6 +134,7 @@ uv run poe all
 - Replace deprecated `argparse.FileType` and close report files and the thread pool
   deterministically
 - Exit with a non-zero status and an error message when the given path does not exist
+- Publish to PyPI from GitHub Actions with trusted publishing and signed attestations
 
 ### 5.1.0 - 2024-06-05
 
