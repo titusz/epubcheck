@@ -1,9 +1,11 @@
+"""Typed namedtuple views over the JSON data returned by epubcheck."""
+
 from collections import namedtuple
 
 
 _BaseChecker = namedtuple(
     "Checker",
-    "path filename checkerVersion checkDate elapsedTime nFatal " "nError nWarning nUsage",
+    "path filename checkerVersion checkDate elapsedTime nFatal nError nWarning nUsage",
 )
 
 
@@ -32,7 +34,7 @@ _BaseMeta = namedtuple(
     "language nSpines checkSum renditionLayout renditionOrientation "
     "renditionSpread ePubVersion isScripted hasFixedFormat isBackwardCompatible "
     "hasAudio hasVideo charsCount embeddedFonts refFonts hasEncryption "
-    "hasSignatures contributors ",
+    "hasSignatures contributors",
 )
 
 
