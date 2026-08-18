@@ -123,7 +123,7 @@ repository.
 
 ## Changelog
 
-### 5.3.0 - Unreleased
+### 5.3.0 - 2026-08-18
 
 - Update to epubcheck 5.3.0
 - Add support for Python 3.13 and 3.14
