@@ -15,7 +15,7 @@ tool for EPUB maintained by [DAISY Consortium](https://daisy.org/) on behalf of 
 This package provides a Python library and command line tool for convenient validation of EPUB files
 by wrapping the original [EpubCheck 5.3.0](https://github.com/w3c/epubcheck/releases/tag/v5.3.0).
 
-- Free software: BSD license
+- Free software: BSD 3-Clause license (same as upstream EpubCheck)
 
 ## Installation
 
@@ -28,8 +28,24 @@ $ pip install epubcheck
 You must have Python & Java installed on your system. The original Java EpubCheck command line
 client itself is bundled in the [PyPi](https://pypi.org/project/epubcheck/) package.
 
-This package is tested with Python 3.8 - 3.14 on Linux, Mac and Windows. It should also work with
+This package is tested with Python 3.10 - 3.14 on Linux, Mac and Windows. It should also work with
 PyPy.
+
+### Run without installing
+
+With [uv](https://docs.astral.sh/uv/) you can run the command line tool directly, without installing
+it into an environment first:
+
+```
+$ uvx epubcheck /path/to/book.epub
+```
+
+`uvx` downloads the package into a temporary, cached environment and runs it. Any of the command
+line options below work the same way. To install it permanently as a standalone tool instead, use:
+
+```
+$ uv tool install epubcheck
+```
 
 ## Quickstart
 
@@ -63,7 +79,8 @@ $ epubcheck -h
 
 ```python
 from epubcheck import EpubCheck
-result = EpubCheck('src/epubcheck/samples/invalid.epub')
+
+result = EpubCheck("/path/to/book.epub")
 print(result.valid)
 print(result.messages)
 ```
@@ -74,16 +91,16 @@ https://epubcheck.readthedocs.io/en/latest/
 
 ## Development
 
-Install [poetry](https://pypi.org/project/poetry/) checkout this repository and run:
+Install [uv](https://docs.astral.sh/uv/), checkout this repository and run:
 
 ```shell
-poetry install
+uv sync
 ```
 
 Run code formatting, coverage, and tests with:
 
 ```shell
-poe all
+uv run poe all
 ```
 
 ## Changelog
@@ -92,6 +109,13 @@ poe all
 
 - Update to epubcheck 5.3.0
 - Add support for Python 3.13 and 3.14
+- Remove support for Python 3.8 and 3.9
+- Change license to BSD 3-Clause to match upstream EpubCheck
+- Switch packaging and development workflow from Poetry to [uv](https://docs.astral.sh/uv/)
+- Update dependencies and CI actions
+- Replace deprecated `argparse.FileType` and close report files and the thread pool
+  deterministically
+- Exit with a non-zero status and an error message when the given path does not exist
 
 ### 5.1.0 - 2024-06-05
 
@@ -110,7 +134,7 @@ poe all
 ### 0.4.3 - 2021-09-28
 
 - Update the epubcheck.jar to v4.2.6
-- Remove support for \< Python 3.6
+- Remove support for < Python 3.6
 
 ### 0.4.2 - 2019-08-07
 
