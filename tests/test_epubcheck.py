@@ -1,4 +1,5 @@
 import subprocess
+import pytest
 import tablib
 import epubcheck
 from epubcheck import samples
@@ -27,6 +28,46 @@ def test_main_invalid(capsys):
     out, err = capsys.readouterr()
     assert "ERROR" in err and "WARNING" in out
     assert exit_code == 1
+
+
+def test_reports_use_default_filenames(tmp_path, monkeypatch):
+    """Bare --xls/--csv fall back to their `const` filenames in the working directory."""
+    monkeypatch.chdir(tmp_path)
+    main([samples.EPUB3_INVALID, "--xls", "--csv"])
+
+    assert (tmp_path / "epubcheck_report.csv").stat().st_size > 0
+    assert (tmp_path / "epubcheck_report.xls").stat().st_size > 0
+
+
+def test_report_target_stdout(capsysbinary):
+    """`-` streams the report to stdout instead of creating a file named `-`."""
+    exit_code = main([samples.EPUB3_INVALID, "--csv", "-"])
+    out, err = capsysbinary.readouterr()
+
+    assert exit_code == 1
+    assert b"OPF-004;WARNING" in out
+
+
+def test_unwritable_report_target_fails_fast(capsys, tmp_path):
+    """An unusable report path aborts with a usage error before any validation runs."""
+    target = tmp_path / "missing_dir" / "report.csv"
+
+    with pytest.raises(SystemExit) as excinfo:
+        main([samples.EPUB3_INVALID, "--csv", str(target)])
+    out, err = capsys.readouterr()
+
+    assert excinfo.value.code == 2
+    assert "can't open" in err
+    assert "WARNING" not in out
+
+
+def test_missing_path(capsys, tmp_path):
+    """A path that does not exist is reported instead of silently succeeding."""
+    exit_code = main([str(tmp_path / "no_such_book.epub")])
+    out, err = capsys.readouterr()
+
+    assert exit_code == 1
+    assert "no such file or directory" in err
 
 
 def test_csv_report(tmp_path):
