@@ -1,50 +1,69 @@
-[tool.poetry]
+[project]
 name = "epubcheck"
 version = "5.3.0"
 description = "Python epubcheck wrapper"
-authors = ["Titusz Pan <tp@py7.de>"]
-license = "BSD"
+authors = [{ name = "Titusz Pan", email = "tp@py7.de" }]
+requires-python = ">=3.10"
 readme = "README.md"
-repository = "https://github.com/titusz/epubcheck/"
-keywords = ['EPUB', 'validation', 'epubcheck', 'ebooks', 'QA', 'IDPF']
-
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+keywords = [
+    "EPUB",
+    "validation",
+    "epubcheck",
+    "ebooks",
+    "QA",
+    "IDPF",
+]
 classifiers = [
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: Unix',
-        'Operating System :: POSIX',
-        'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
-        'Programming Language :: Python :: 3.12',
-        'Programming Language :: Python :: 3.13',
-        'Programming Language :: Python :: 3.14',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "tablib",
+    "xlwt",
+    "xlrd",
 ]
 
-[tool.poetry.scripts]
-epubcheck = 'epubcheck.cli:main'
+[project.urls]
+Repository = "https://github.com/titusz/epubcheck/"
 
-[tool.poetry.dependencies]
-python = ">=3.8"
-tablib = "*"
-xlwt = "*"
-xlrd = "*"
+[project.scripts]
+epubcheck = "epubcheck.cli:main"
 
-[tool.poetry.group.test.dependencies]
-pytest = "*"
-coverage = "*"
-pytest-cov = "*"
+[dependency-groups]
+test = [
+    "pytest",
+    "coverage",
+    "pytest-cov",
+]
+dev = [
+    "poethepoet",
+    "ruff",
+    "mdformat-gfm",
+]
 
-[tool.poetry.group.dev.dependencies]
-poethepoet = "*"
-ruff = "*"
-mdformat-gfm = "*"
+[tool.uv]
+default-groups = "all"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[build-system]
+requires = ["uv_build>=0.11.29,<0.12.0"]
+build-backend = "uv_build"
 
 [tool.ruff]
 line-length = 100
@@ -52,12 +71,12 @@ line-length = 100
 [tool.ruff.format]
 line-ending = "lf"
 
-[tool.poe.tasks]
-format-code = { cmd = "poetry run ruff format", help = "Code style formatting with ruff" }
-format-markdown = { cmd = "mdformat --wrap 100 --end-of-line lf .", help = "Markdown formatting with mdformat" }
-test = { cmd = "poetry run pytest --cov=epubcheck --cov-fail-under=100 --cov-report=term-missing", help = "Run tests with coverage" }
-all = ["format-code", "format-markdown", "test"]
+# `patch` lets coverage measure `__main__.py`, which is only exercised via a subprocess.
+[tool.coverage.run]
+patch = ["subprocess"]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poe.tasks]
+format-code = { cmd = "ruff format", help = "Code style formatting with ruff" }
+format-markdown = { cmd = "mdformat --wrap 100 --end-of-line lf README.md", help = "Markdown formatting with mdformat" }
+test = { cmd = "pytest --cov=epubcheck --cov-fail-under=100 --cov-report=term-missing", help = "Run tests with coverage" }
+all = ["format-code", "format-markdown", "test"]
