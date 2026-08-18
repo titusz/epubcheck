@@ -81,9 +81,9 @@ class Message(_BaseMessage):
     A Validation message representing a single error condition.
 
     :param str id: Error type id (ex: "OPF-049")
-    :param str level: Severity of messeage (ex: "ERROR")
+    :param str level: Severity of message (ex: "ERROR")
     :param str location: Location of error (ex: <file>:<line>:<column>)
-    :param str message: Description of the error condiction
+    :param str message: Description of the error condition
     :param str suggestion: How to resolve error condition
     """
 

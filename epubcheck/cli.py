@@ -13,7 +13,7 @@ from epubcheck.utils import iter_files
 
 
 def create_parser():
-    """Creat a commandline parser for epubcheck
+    """Create a commandline parser for epubcheck
 
     :return Argumentparser:
     """
