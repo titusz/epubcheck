@@ -13,7 +13,7 @@ tool for EPUB maintained by [DAISY Consortium](https://daisy.org/) on behalf of 
 [IDPF](http://idpf.org/).
 
 This package provides a Python library and command line tool for convenient validation of EPUB files
-by wrapping the original [EpubCheck 5.3.0](https://github.com/w3c/epubcheck/releases/tag/v5.3.0).
+by wrapping the original [EpubCheck 5.4.0](https://github.com/w3c/epubcheck/releases/tag/v5.4.0).
 
 - Free software: BSD 3-Clause license (same as upstream EpubCheck)
 
@@ -122,6 +122,10 @@ failing check stops the release before anything is published. Uploads use
 repository.
 
 ## Changelog
+
+### 5.4.0 - 2026-XX-YY
+
+- Update to epubcheck 5.4.0
 
 ### 5.3.0 - 2026-08-18
 
