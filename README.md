@@ -13,7 +13,7 @@ tool for EPUB maintained by [DAISY Consortium](https://daisy.org/) on behalf of 
 [IDPF](http://idpf.org/).
 
 This package provides a Python library and command line tool for convenient validation of EPUB files
-by wrapping the original [EpubCheck 5.3.0](https://github.com/w3c/epubcheck/releases/tag/v5.3.0).
+by wrapping the original [EpubCheck 5.4.0](https://github.com/w3c/epubcheck/releases/tag/v5.4.0).
 
 - Free software: BSD 3-Clause license (same as upstream EpubCheck)
 
@@ -28,7 +28,7 @@ $ pip install epubcheck
 You must have Python & Java installed on your system. The original Java EpubCheck command line
 client itself is bundled in the [PyPi](https://pypi.org/project/epubcheck/) package.
 
-This package is tested with Python 3.10 - 3.14 on Linux, Mac and Windows. It should also work with
+This package is tested with Python 3.10 - 3.15 on Linux, Mac and Windows. It should also work with
 PyPy.
 
 ### Run without installing
@@ -122,6 +122,11 @@ failing check stops the release before anything is published. Uploads use
 repository.
 
 ## Changelog
+
+### 5.4.0 - 2026-XX-YY
+
+- Update to epubcheck 5.4.0
+- Add support for Python 3.15
 
 ### 5.3.0 - 2026-08-18
 
