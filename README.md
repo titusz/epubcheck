@@ -110,8 +110,8 @@ Releases are published to PyPI by GitHub Actions when a version tag is pushed. T
 that version's changelog section a release date, merge to `master`, and then:
 
 ```shell
-git tag v5.3.0
-git push origin v5.3.0
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
 The workflow checks that the tag, both version declarations and the changelog agree, runs the full
@@ -123,9 +123,9 @@ repository.
 
 ## Changelog
 
-### 5.4.0 - 2026-XX-YY
+### 5.4.0 - 2026-11-10
 
-- Update to epubcheck 5.4.0
+- Update to epubcheck 5.4.0, which adds support for EPUB 3.4
 - Add support for Python 3.15
 
 ### 5.3.0 - 2026-08-18

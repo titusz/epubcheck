@@ -43,7 +43,7 @@ def changelog_notes(root, version):
     if match is None:
         raise SystemExit(f"README.md has no changelog section '### {version} - <date>'")
     date = match.group("date").strip()
-    if "unreleased" in date.lower():
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) is None:
         raise SystemExit(f"README.md still marks {version} as '{date}' - set a release date")
     body = match.group("body").strip()
     if not body:

@@ -46,9 +46,10 @@ def test_changelog_notes_missing_section(tmp_path):
         guard.changelog_notes(tmp_path, "4.5.6")
 
 
-def test_changelog_notes_still_unreleased(tmp_path):
-    """A changelog entry left as Unreleased aborts the release."""
-    write_repo(tmp_path, date="Unreleased")
+@pytest.mark.parametrize("date", ["Unreleased", "2026-XX-YY"])
+def test_changelog_notes_without_release_date(tmp_path, date):
+    """A changelog entry without a YYYY-MM-DD release date aborts the release."""
+    write_repo(tmp_path, date=date)
 
     with pytest.raises(SystemExit, match="set a release date"):
         guard.changelog_notes(tmp_path, "1.2.3")

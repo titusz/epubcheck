@@ -2,7 +2,7 @@ name: Release
 
 # Releases are cut by pushing a version tag:
 #
-#     git tag v5.3.0 && git push origin v5.3.0
+#     git tag vX.Y.Z && git push origin vX.Y.Z
 #
 # PyPI upload uses trusted publishing (OIDC), so no API token is stored anywhere.
 on:
@@ -124,7 +124,7 @@ jobs:
           name: dist
           path: dist/
 
-      - uses: pypa/gh-action-pypi-publish@v1.14.2
+      - uses: pypa/gh-action-pypi-publish@v1.14.3
 
   github-release:
     name: Create the GitHub release
